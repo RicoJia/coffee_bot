@@ -6,6 +6,9 @@
 This Project is Rico's birthday present from Justine, his girlfriend. As a base line, they intend to build a robot that can be remotely controlled to deliver coffee in a 12 oz cup. 
 Rico and Justine purchased this robot as their mobile platform [Yahboom Raspberry Pi Tank](https://www.amazon.com/gp/product/B07KRVBGQM/ref=ppx_yo_dt_b_asin_title_o03_s00?ie=UTF8&psc=1)
 
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/k77LvmTr6P0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 ### Overview 
 Below are the hardware of the robot. 
 - 3D printed cupholder
