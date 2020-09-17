@@ -1,0 +1,8 @@
+prefix=/home/ricojia/coffee_bot/ros_ws/devel
+
+Name: rigid2d
+Description: Description of rigid2d
+Version: 0.0.0
+Cflags: -I/home/ricojia/coffee_bot/ros_ws/src/nu_packages/rigid2d/include
+Libs: -L${prefix}/lib -lrigid2d
+Requires: roscpp tf nav_msgs geometry_msgs turtlesim

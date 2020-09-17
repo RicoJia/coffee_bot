@@ -1,0 +1,2 @@
+coffee_bot:nu_packages/nuslam:nu_packages/nuturtle:nu_packages/nuturtle_description:nu_packages/nuturtle_gazebo:nu_packages/nuturtle_robot:nu_packages/rigid2d
+-DCATKIN_DEVEL_PREFIX=/home/ricojia/coffee_bot/ros_ws/devel -DCMAKE_INSTALL_PREFIX=/home/ricojia/coffee_bot/ros_ws/install -G Unix Makefiles

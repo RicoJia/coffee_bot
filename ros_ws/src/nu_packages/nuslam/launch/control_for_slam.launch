@@ -1,0 +1,45 @@
+<launch>
+
+
+<!-- launchfile for making the robot follow a series of waypoints -->
+    <arg name="robot" default='-1' doc="If set to non zero number, launchfile is being set to the robot. If set to -1, launchfile will be set to local computer"/>
+
+<!--    For actual turtlebot3-->
+    <group if="$(eval arg('robot')!=-1)">
+        <machine name="remote_from_pc" address="$(eval 'turtlebot' + str(arg('robot')))" user="student" env-loader="/home/student/install/env.sh"/>
+        <!--    launching actual turtlebot3 nodes-->
+        <include file="$(find nuturtle_robot)/launch/basic_remote.launch">
+            <arg name="robot" value="$(arg robot)"/>
+        </include>
+
+        <!--    launching waypoint node-->
+        <node name="real_waypoint" type="real_waypoint" pkg="nuturtle_robot" output="screen" machine="remote_from_pc">
+            <rosparam file="$(find nuslam)/config/params.yaml" command="load"/>
+        </node>
+
+        <!--     launching turtle interface   -->
+        <node name="turtle_interface" type="turtle_interface" pkg="nuturtle_robot" output="screen"  machine="remote_from_pc">
+            <rosparam file="$(find nuslam)/config/params.yaml" command="load"/>
+        </node>
+
+<!--        &lt;!&ndash;    Rviz nodes&ndash;&gt;-->
+<!--        <param name="robot_description" command="$(find xacro)/xacro $(find nuturtle_gazebo)/urdf/diff_drive.gazebo.xacro"/>-->
+<!--        <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" machine="remote_from_pc"/>-->
+<!--        <node name="rviz" pkg="rviz" type="rviz" args="-d $(find nuturtle_description)/config/view_robot.rviz" required="true"/>-->
+    </group>
+
+<!--    For simulation-->
+    <group if="$(eval arg('robot')==-1)">
+<!--        launching waypoint node-->
+        <node name="real_waypoint" type="real_waypoint" pkg="nuturtle_robot" output="screen">
+            <rosparam file="$(find nuslam)/config/params.yaml" command="load"/>
+        </node>
+
+<!--        launching turtle interface-->
+        <node name="turtle_interface" type="turtle_interface" pkg="nuturtle_robot" output="screen">
+            <rosparam file="$(find nuslam)/config/params.yaml" command="load"/>
+        </node>
+
+    </group>
+
+</launch>

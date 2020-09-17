@@ -1,0 +1,9 @@
+# CMake generated Testfile for 
+# Source directory: /home/ricojia/coffee_bot/ros_ws/src/nu_packages/rigid2d
+# Build directory: /home/ricojia/coffee_bot/ros_ws/build/nu_packages/rigid2d
+# 
+# This file includes the relevant testing commands required for 
+# testing this directory and lists subdirectories to be tested as well.
+add_test(_ctest_rigid2d_gtest_rigid2d_FakeDiffEncoders_test "/home/ricojia/coffee_bot/ros_ws/build/catkin_generated/env_cached.sh" "/usr/bin/python2" "/opt/ros/melodic/share/catkin/cmake/test/run_tests.py" "/home/ricojia/coffee_bot/ros_ws/build/test_results/rigid2d/gtest-rigid2d_FakeDiffEncoders_test.xml" "--return-code" "/home/ricojia/coffee_bot/ros_ws/devel/lib/rigid2d/rigid2d_FakeDiffEncoders_test --gtest_output=xml:/home/ricojia/coffee_bot/ros_ws/build/test_results/rigid2d/gtest-rigid2d_FakeDiffEncoders_test.xml")
+add_test(_ctest_rigid2d_gtest_rigid2d_Transform2D_test "/home/ricojia/coffee_bot/ros_ws/build/catkin_generated/env_cached.sh" "/usr/bin/python2" "/opt/ros/melodic/share/catkin/cmake/test/run_tests.py" "/home/ricojia/coffee_bot/ros_ws/build/test_results/rigid2d/gtest-rigid2d_Transform2D_test.xml" "--return-code" "/home/ricojia/coffee_bot/ros_ws/devel/lib/rigid2d/rigid2d_Transform2D_test --gtest_output=xml:/home/ricojia/coffee_bot/ros_ws/build/test_results/rigid2d/gtest-rigid2d_Transform2D_test.xml")
+add_test(_ctest_rigid2d_gtest_rigid2d_DiffDrive_test "/home/ricojia/coffee_bot/ros_ws/build/catkin_generated/env_cached.sh" "/usr/bin/python2" "/opt/ros/melodic/share/catkin/cmake/test/run_tests.py" "/home/ricojia/coffee_bot/ros_ws/build/test_results/rigid2d/gtest-rigid2d_DiffDrive_test.xml" "--return-code" "/home/ricojia/coffee_bot/ros_ws/devel/lib/rigid2d/rigid2d_DiffDrive_test --gtest_output=xml:/home/ricojia/coffee_bot/ros_ws/build/test_results/rigid2d/gtest-rigid2d_DiffDrive_test.xml")

@@ -1,0 +1,63 @@
+<!--This is the launch file that launches: 1. Waypoint following node 2.real_world_rviz node 3. SLAM node 4. Rviz 5. Gazebo or Turtlebot3-->
+<!--    argument debug is whether to provide landmarks observations-->
+
+<launch>
+
+    <!--    Launching Waypoint following node-->
+    <arg name="robot" default='-1' doc="If set to non zero number X, launchfile is being set to the robot. If set to -1, launchfile will be set to local computer"/>
+    <arg name="debug" default='1' doc="If set to 1, landmark info is provided, and no landmark info if set to 0 "/>
+
+    <include file="$(find nuslam)/launch/control_for_slam.launch">
+        <arg name="robot" value="$(arg robot)"/>
+    </include>
+
+<!--&lt;!&ndash;    TODO: Delete this&ndash;&gt;-->
+<!--    <node name="turtle_interface" type="turtle_interface" pkg="nuturtle_robot" output="screen">-->
+<!--        <rosparam file="$(find nuslam)/config/params.yaml" command="load"/>-->
+<!--    </node>-->
+
+<!--    &lt;!&ndash;    Launching real_world node&ndash;&gt; &lt;!&ndash;    This node also provides landmark info for Rviz&ndash;&gt;-->
+    <node name="real_world" type="real_world" pkg="nuslam" if="$(eval arg('debug')==1)" output="screen" >
+        <rosparam file="$(find nuslam)/config/params.yaml" command="load"/>
+    </node>
+    <node name="landmarks" type="landmarks" pkg="nuslam" unless="$(eval arg('debug')==1)" output="screen">
+        <rosparam file="$(find nuslam)/config/params.yaml" command="load"/>
+    </node>
+    <node name="draw_map" type="draw_map" pkg="nuslam">
+        <rosparam file="$(find nuslam)/config/params.yaml" command="load"/>
+    </node>
+
+<!--        Launching SLAM node and landmark detection node-->
+    <node name="ekf_and_odometer" type="ekf_and_odometer" pkg="nuslam" output="screen" >
+        <rosparam file="$(find nuslam)/config/params.yaml" command="load"/>
+        <remap from="~set_pose" to="/Odometer/set_pose"/>
+    </node>
+
+    <!--    Launching Gazebo-->
+    <arg name="world_name" default="empty_world" doc="enter the exact name of the world you'd like to use, eg., if you'd like to load mud.world, enter mud"/>
+    <include file="$(find gazebo_ros)/launch/empty_world.launch">
+        <!--        TODO, change find $(find nuturtle_gazebo)? also change name?-->
+        <arg name="world_name" default="$(find nuturtle_gazebo)/worlds/empty_world.world"/> <!-- Note: the world_name is with respect to GAZEBO_RESOURCE_PATH environmental variable -->
+        <!--        <arg name="world_name" value="$(find nuturtle_gazebo)/worlds/$(eval str(arg('world_name'))+'.world')" /> &lt;!&ndash; Note: the world_name is with respect to GAZEBO_RESOURCE_PATH environmental variable &ndash;&gt;-->
+        <arg name="paused" value="true"/>
+        <arg name="use_sim_time" value="true"/>
+        <arg name="gui" value="true"/>
+        <arg name="recording" value="false"/>
+        <arg name="debug" value="false"/>
+    </include>
+    <arg name="mode" default="0" />
+    <arg name="x" default="0"/>
+    <arg name="y" default="0"/>
+    <arg name="z" default="0.0"/>
+    <node name="mybot_spawn" pkg="gazebo_ros" type="spawn_model" output="screen"
+          args="-urdf -param robot_description -model diff_drive2 -x $(arg x) -y $(arg y) -z $(arg z)" />
+
+    <!--    Launching Rviz-->
+    <rosparam file="$(find nuslam)/config/params.yaml" command="load"/>
+
+    <!--        launching rviz nodes-->
+    <param name="robot_description" command="$(find xacro)/xacro $(find nuturtle_gazebo)/urdf/diff_drive.gazebo.xacro"/>
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"/>
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find nuturtle_description)/config/view_robot.rviz" required="true"/>
+
+</launch>

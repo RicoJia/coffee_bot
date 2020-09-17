@@ -1,0 +1,55 @@
+<launch>
+<!-- launch file for launching motion nodes and visualization nodes for testing translation, rotation of turtlebot3 burger -->
+
+<!--     QUESTION FOR MATT: putting params in group does and remap them in the following way does not allow each node to read their private parameters?  -->
+
+<!--     launching rosserial onto the robot -->
+    <arg name="robot" default='0' doc="If set to non zero number, launchfile is being set to the robot. If set to 0, launchfile will be set to local computer"/>
+    <include file="$(find nuturtle_robot)/launch/basic_remote.launch">
+        <arg name="robot" value="$(arg robot)"/>
+    </include>
+
+    <machine name="remote_from_pc" address="$(eval 'turtlebot' + str(arg('robot')))" user="student" env-loader="/home/student/install/env.sh"/>
+
+
+    <group if="$(eval arg('robot')!=0)">
+
+        <node name="translation" type="translation" pkg="nuturtle_robot" output="screen"  machine="remote_from_pc">
+            <rosparam file="$(find nuslam)/config/params.yaml" command="load"/>
+
+        </node>
+
+        <node name="turtle_interface" type="turtle_interface" pkg="nuturtle_robot" output="screen"  machine="remote_from_pc">
+            <rosparam file="$(find nuslam)/config/params.yaml" command="load"/>
+
+        </node>
+
+        <node name="fake_encoders" type="rigid2d_Fake_Diff_Encoders_node" pkg="rigid2d" output="screen" machine="remote_from_pc">
+            <rosparam file="$(find nuslam)/config/params.yaml" command="load"/>
+
+            <remap from="joint_states" to="fake/joint_states"/>
+        </node>
+
+        <node name="Odometer" type="rigid2d_Odometer_node" pkg="rigid2d" output="screen" machine="remote_from_pc">
+            <rosparam file="$(find nuslam)/config/params.yaml" command="load"/>
+
+            <param name="odom_frame_id" value="odom"/>
+          <param name="body_frame_id" value="base_link"/>
+        </node>
+
+        <node name="fake_Odometer" type="rigid2d_Odometer_node" pkg="rigid2d" output="screen" ns="fake" machine="remote_from_pc">
+            <rosparam file="$(find nuslam)/config/params.yaml" command="load"/>
+
+            <param name="odom_frame_id" value="fake_odom"/>
+          <param name="body_frame_id" value="fake_base_link"/>
+          <param name="joint_state_topic_name" value="fake/joint_states"/>
+        </node>
+
+        <node pkg="tf2_ros" type="static_transform_publisher" name="fake_odom_transform" args="0 0 0 0 0 0 1 odom fake_odom" />
+        <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find nuturtle_description)/urdf/diff_drive.urdf.xacro'"/>
+        <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" machine="remote_from_pc"/>
+        <node name="rviz" pkg="rviz" type="rviz" args="-d $(find nuturtle_description)/config/view_robot.rviz" required="true"/>
+
+    </group>
+
+</launch>

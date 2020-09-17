@@ -1,0 +1,49 @@
+#units: m
+#wheel_width: The width of the wheels
+#wheel_radius: The radius of the wheels
+#wheel_base: The distance between the centers wheels
+#wheel_mass: mass of the wheel
+#chassis_mass: mass of the chassis(kg)
+#chassis_length: The length of the main chassis link
+#chassis_thickness: The thickness of the plate that forms the chassis
+#encoder_ticks_per_rev: number of ticks per encoder revolution
+#max_wheel_command maximum pwm to the motor
+#wheel_axle_offset: distance between a wheel axle and the bottom of the chassis
+#laser_scanner_radius: radius of the laser scanner cylinder
+#laser_scanner_height: height of the laser scanner cylinder
+
+#frequency: legacy frequency value some old files depend on, which should be the same as other frequency values.
+#rotation_pub_frequency - This is the publishing frequency of the node "/rotation"
+#translation_pub_frequency - Used by the node "/translation"
+#frac_vel - fraction of the full on body twost velocity
+
+wheel_width: 0.018
+wheel_radius: 0.033
+wheel_base: 0.16
+chassis_length: 0.138
+chassis_thickness: 0.140
+wheel_mass: 0.03
+chassis_mass: 1.0
+wheel_axle_offset: 0.02
+laser_scanner_radius: 0.02
+laser_scanner_height: 0.02
+
+encoder_ticks_per_rev:  4096  #8192
+max_trans_vel: 0.22
+max_rot_vel: 2.84
+max_motor_rot_vel: 6.35492
+max_wheel_command: 265
+
+left_wheel_joint: 'left_wheel_axle'
+right_wheel_joint: 'right_wheel_axle'
+frequency: 120
+
+rotation_pub_frequency: 120
+translation_pub_frequency: 120
+frac_vel: 1.0
+
+
+waypoints_x: [0.0, 0.5, 1.0, 0.25, -0.5]
+waypoints_y: [0.0, 0.0, 0.5, 1.0, 0.5]
+k_rot:  0.3
+k_trans:  0.8

@@ -1,0 +1,29 @@
+<launch>
+    <arg name="robot" default='0' doc="If set to non zero number, launchfile is being set to the robot. If set to 0, launchfile will be set to local computer"/>
+    <machine name="local_from_turtlebot" address="localhost" user="student" env-loader="/home/student/install/env.sh"/>
+    <machine name="remote_from_pc" address="$(eval 'turtlebot' + str(arg('robot')))" user="student" env-loader="/home/student/install/env.sh"/>
+<!--     <machine name="remote_from_pc" address="turtlebot1" user="student" env-loader="/home/student/install/env.sh"/> -->
+
+<!--     Question: address has to be turtlebot4, not directly turtlebotX? -->
+
+    <group if="$(eval arg('robot')!=0)">
+        <node name="serial_node" pkg="rosserial_python" type="serial_node.py" machine="remote_from_pc">
+            <param name="port" value="/dev/ttyACM0"/>
+            <param name="baud" value="115200"/>
+        </node>
+
+        <node name="hlds_laser_publisher" type="hlds_laser_publisher" pkg="hls_lfcd_lds_driver">
+            <param name="port" value="/dev/ttyUSB0"/>
+            <param name="frame_id" value="base_scan"/>
+        </node>
+    </group>
+
+    <group unless="$(eval arg('robot')!=0)">
+        <node name="serial_node" pkg="rosserial_python" type="serial_node.py" machine="local_from_turtlebot">
+            <param name="port" value="/dev/ttyACM0"/>
+            <param name="baud" value="115200"/>
+        </node>
+    </group>
+
+</launch>
+

@@ -1,0 +1,61 @@
+<launch>
+<!-- launchfile for making the robot follow a series of waypoints -->
+    <arg name="robot" default='-1' doc="If set to non zero number, launchfile is being set to the robot. If set to -1, launchfile will be set to local computer"/>
+
+
+    <group if="$(eval arg('robot')!=-1)">
+    <machine name="remote_from_pc" address="$(eval 'turtlebot' + str(arg('robot')))" user="student" env-loader="/home/student/install/env.sh"/>
+    <include file="$(find nuturtle_robot)/launch/basic_remote.launch">
+        <arg name="robot" value="$(arg robot)"/>
+    </include>
+
+            <node name="real_waypoint" type="real_waypoint" pkg="nuturtle_robot" output="screen" machine="remote_from_pc">
+                <rosparam file="$(find nuslam)/config/params.yaml" command="load"/>
+
+            </node>
+
+        <node name="turtle_interface" type="turtle_interface" pkg="nuturtle_robot" output="screen"  machine="remote_from_pc">
+            <rosparam file="$(find nuslam)/config/params.yaml" command="load"/>
+
+        </node>
+
+        <node name="Odometer" type="rigid2d_Odometer_node" pkg="rigid2d" output="screen" machine="remote_from_pc">
+            <rosparam file="$(find nuslam)/config/params.yaml" command="load"/>
+
+            <param name="odom_frame_id" value="odom"/>
+          <param name="body_frame_id" value="base_link"/>
+        </node>
+
+        <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find nuturtle_description)/urdf/diff_drive.urdf.xacro'"/>
+        <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" machine="remote_from_pc"/>
+    <!--     <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" /> -->
+
+        <node name="rviz" pkg="rviz" type="rviz" args="-d $(find nuturtle_description)/config/view_robot.rviz" required="true"/>
+    </group>
+
+    <group if="$(eval arg('robot')==-1)">
+        <node name="real_waypoint" type="real_waypoint" pkg="nuturtle_robot" output="screen">
+            <rosparam file="$(find nuslam)/config/params.yaml" command="load"/>
+
+        </node>
+
+        <node name="turtle_interface" type="turtle_interface" pkg="nuturtle_robot" output="screen">
+            <rosparam file="$(find nuslam)/config/params.yaml" command="load"/>
+
+        </node>
+
+        <node name="Odometer" type="rigid2d_Odometer_node" pkg="rigid2d" output="screen">
+            <rosparam file="$(find nuslam)/config/params.yaml" command="load"/>
+
+            <param name="odom_frame_id" value="odom"/>
+            <param name="body_frame_id" value="base_link"/>
+        </node>
+
+        <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find nuturtle_description)/urdf/diff_drive.urdf.xacro'"/>
+        <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"/>
+        <!--     <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" /> -->
+
+        <node name="rviz" pkg="rviz" type="rviz" args="-d $(find nuturtle_description)/config/view_robot.rviz" required="true"/>
+    </group>
+
+</launch>

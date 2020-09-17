@@ -1,0 +1,8 @@
+prefix=/home/ricojia/coffee_bot/ros_ws/devel
+
+Name: nuturtlebot
+Description: Description of nuturtlebot
+Version: 0.0.1
+Cflags: -I/home/ricojia/coffee_bot/ros_ws/devel/include
+Libs: -L${prefix}/lib 
+Requires: message_runtime

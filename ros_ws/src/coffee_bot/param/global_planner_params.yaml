@@ -1,0 +1,21 @@
+GlobalPlanner:
+  cost_factor: 0.55
+  
+SBPLLatticePlanner:
+  environment_type: XYThetaLattice
+  planner_type: ADPlanner #ADPlanner
+  allocated_time: 2.5
+  initial_epsilon: 2.0
+  forward_search: false
+  force_scratch_limit: 50 #If at least this many map cells have changed since the last plan was generated, the planner will not reuse previous search information and instead plan from scratch.
+  lethal_obstacle: 20
+
+SBPLLatticeFastrackPlanner:
+  environment_type: XYThetaLattice
+  planner_type: ADPlanner #ADPlanner
+  allocated_time: 2.5
+  initial_epsilon: 2.0
+  forward_search: false
+  force_scratch_limit: 50 #If at least this many map cells have changed since the last plan was generated, the planner will not reuse previous search information and instead plan from scratch.
+  lethal_obstacle: 20
+  robot_radius: 0.43    #robot circumscribed radius

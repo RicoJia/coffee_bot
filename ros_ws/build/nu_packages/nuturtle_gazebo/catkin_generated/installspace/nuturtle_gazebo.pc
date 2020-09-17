@@ -1,0 +1,8 @@
+prefix=/home/ricojia/coffee_bot/ros_ws/install
+
+Name: nuturtle_gazebo
+Description: Description of nuturtle_gazebo
+Version: 0.0.1
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

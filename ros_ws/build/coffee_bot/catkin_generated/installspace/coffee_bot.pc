@@ -1,0 +1,8 @@
+prefix=/home/ricojia/coffee_bot/ros_ws/install
+
+Name: coffee_bot
+Description: Description of coffee_bot
+Version: 0.1.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 
