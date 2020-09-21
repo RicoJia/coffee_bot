@@ -1,0 +1,8 @@
+prefix=/home/ricojia/coffee_bot/ros_ws/install
+
+Name: phidgets_imu
+Description: Description of phidgets_imu
+Version: 0.7.10
+Cflags: -I${prefix}/include
+Libs: -L${prefix}/lib -lphidgets_imu
+Requires: diagnostic_msgs diagnostic_updater nodelet pluginlib phidgets_api roscpp sensor_msgs std_msgs std_srvs

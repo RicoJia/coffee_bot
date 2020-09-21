@@ -5,7 +5,6 @@
   <arg name="model" default="$(env TURTLEBOT3_MODEL)" doc="model type [burger, waffle, waffle_pi]"/>
   <arg name="configuration_basename" default="turtlebot3_lds_2d.lua"/>
 
-
 <!--  <arg name="map_file" default="$(find coffee_bot)/maps/bare_map.yaml"/>-->
   <arg name="open_rviz" default="true"/>
   <arg name="add_obstacle" default="false"/>
@@ -14,24 +13,25 @@
   <arg name="initial_pose_y" default="1"/>
   <arg name="initial_pose_a" default="0"/>
 
+  <arg name="onboard" default="false"/>
+
  <!-- Gazebo environment-->
   <include file="$(find nuturtle_gazebo)/launch/coffee_bot_diff_drive.launch"/>
 
-<!--  nu_turtle control-->
+<!--  nu_turtle control, /cmd_vel -> pwm -->
   <node name="turtle_interface" type="turtle_interface" pkg="nuturtle_robot" output="screen">
-    <rosparam file="$(find nuslam)/config/params.yaml" command="load"/>
+    <rosparam file="$(find coffee_bot)/config/params.yaml" command="load"/>
+    <param name="odom_frame_name" value="odom"/>
+    <param name="base_link_name" value="base_link"/>
+    <param name="imu_topic_name" value="imu_data"/>
+<!--    <param name="freq" value="2.0"/>-->
   </node>
-<!--  nu ekf & odometer, will be replaced by imu-->
-<!--  <node name="odometer" type="odometer" pkg="nuslam" output="screen" >-->
-<!--    <rosparam file="$(find nuslam)/config/params.yaml" command="load"/>-->
-<!--  </node>-->
 
-<!--TODO: change link name-->
     <!-- rviz -->
-<!--  <group if="$(arg open_rviz)">-->
-<!--    <node pkg="rviz" type="rviz" name="rviz" required="true"-->
-<!--          args="-d $(find turtlebot3_navigation)/rviz/turtlebot3_navigation.rviz"/>-->
-<!--  </group>-->
+  <group if="$(arg open_rviz)">
+    <node pkg="rviz" type="rviz" name="rviz" required="true"
+          args="-d $(find turtlebot3_navigation)/rviz/turtlebot3_navigation.rviz"/>
+  </group>
 
   <!--  TODO, change launch method -->
   <!--gmapping -->
@@ -43,27 +43,18 @@
 
   <param name="/use_sim_time" value = "true"/>
 
-  <node pkg="robot_pose_ekf" type="robot_pose_ekf" name="robot_pose_ekf">
-    <param name="output_frame" value="odom"/>
-    <param name="freq" value="30.0"/>
-    <param name="sensor_timeout" value="1.0"/>
-    <param name="odom_used" value="false"/>
-    <param name="imu_used" value="true"/>
-    <param name="vo_used" value="false"/>
-    <param name="debug" value="false"/>
-    <param name="self_diagnose" value="false"/>
-  </node>
+  <node pkg="coffee_bot" name="auto_gmapping" type="auto_gmapping"/>
 
-  <!--  <node pkg="coffee_bot" name="auto_gmapping" type="auto_gmapping"/>-->
+  <!--  /odom -> /base_link -> /base_scan-->
+  <node pkg="tf" type="static_transform_publisher" name="base_scan_broadcaster" args="1 0 0 0 0 0 1 base_link base_scan 1" />
+  <node pkg="tf" type="static_transform_publisher" name="base_footprint_broadcaster" args="1 0 0 0 0 0 1 base_link base_footprint 1" />
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"/>
 
-
-  <!--  TODO -->
   <!-- move_base customized -->
-<!--  <include file="$(find coffee_bot)/launch/diff_drive_auto_gmapping/move_base_diff_drive.launch">-->
-<!--    <arg name="model" value="$(arg model)" />-->
-<!--  </include>-->
+  <include file="$(find coffee_bot)/launch/diff_drive_auto_gmapping/move_base_diff_drive.launch">
+    <arg name="model" value="$(arg model)" />
+  </include>
 
-<!--  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"/>-->
 
 </launch>
 

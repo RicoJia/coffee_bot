@@ -91,9 +91,9 @@ endif()
 # flag project as catkin-based to distinguish if a find_package()-ed project is a catkin project
 set(nuturtle_robot_FOUND_CATKIN_PROJECT TRUE)
 
-if(NOT "/home/ricojia/coffee_bot/ros_ws/devel/include " STREQUAL " ")
+if(NOT " " STREQUAL " ")
   set(nuturtle_robot_INCLUDE_DIRS "")
-  set(_include_dirs "/home/ricojia/coffee_bot/ros_ws/devel/include")
+  set(_include_dirs "")
   if(NOT " " STREQUAL " ")
     set(_report "Check the issue tracker '' and consider creating a ticket if the problem has not been reported yet.")
   elseif(NOT " " STREQUAL " ")

@@ -53,16 +53,6 @@ CMAKE_BINARY_DIR = /home/ricojia/coffee_bot/ros_ws/build
 # Include the progress variables for this target.
 include nu_packages/nuturtle_robot/CMakeFiles/nuturtle_robot_generate_messages_nodejs.dir/progress.make
 
-nu_packages/nuturtle_robot/CMakeFiles/nuturtle_robot_generate_messages_nodejs: /home/ricojia/coffee_bot/ros_ws/devel/share/gennodejs/ros/nuturtle_robot/srv/Start.js
-
-
-/home/ricojia/coffee_bot/ros_ws/devel/share/gennodejs/ros/nuturtle_robot/srv/Start.js: /opt/ros/melodic/lib/gennodejs/gen_nodejs.py
-/home/ricojia/coffee_bot/ros_ws/devel/share/gennodejs/ros/nuturtle_robot/srv/Start.js: /home/ricojia/coffee_bot/ros_ws/src/nu_packages/nuturtle_robot/srv/Start.srv
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/ricojia/coffee_bot/ros_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating Javascript code from nuturtle_robot/Start.srv"
-	cd /home/ricojia/coffee_bot/ros_ws/build/nu_packages/nuturtle_robot && ../../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/ricojia/coffee_bot/ros_ws/src/nu_packages/nuturtle_robot/srv/Start.srv -p nuturtle_robot -o /home/ricojia/coffee_bot/ros_ws/devel/share/gennodejs/ros/nuturtle_robot/srv
-
-nuturtle_robot_generate_messages_nodejs: nu_packages/nuturtle_robot/CMakeFiles/nuturtle_robot_generate_messages_nodejs
-nuturtle_robot_generate_messages_nodejs: /home/ricojia/coffee_bot/ros_ws/devel/share/gennodejs/ros/nuturtle_robot/srv/Start.js
 nuturtle_robot_generate_messages_nodejs: nu_packages/nuturtle_robot/CMakeFiles/nuturtle_robot_generate_messages_nodejs.dir/build.make
 
 .PHONY : nuturtle_robot_generate_messages_nodejs

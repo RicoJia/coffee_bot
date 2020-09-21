@@ -38,10 +38,6 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/nuturtle_robot/srv" TYPE FILE FILES "/home/ricojia/coffee_bot/ros_ws/src/nu_packages/nuturtle_robot/srv/Start.srv")
-endif()
-
-if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/nuturtle_robot/cmake" TYPE FILE FILES "/home/ricojia/coffee_bot/ros_ws/build/nu_packages/nuturtle_robot/catkin_generated/installspace/nuturtle_robot-msg-paths.cmake")
 endif()
 
@@ -89,12 +85,7 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/nuturtle_robot" TYPE PROGRAM FILES
-    "/home/ricojia/coffee_bot/ros_ws/src/nu_packages/nuturtle_robot/src/turtle_interface.cpp"
-    "/home/ricojia/coffee_bot/ros_ws/src/nu_packages/nuturtle_robot/src/rotation.cpp"
-    "/home/ricojia/coffee_bot/ros_ws/src/nu_packages/nuturtle_robot/src/translation.cpp"
-    "/home/ricojia/coffee_bot/ros_ws/src/nu_packages/nuturtle_robot/src/real_waypoint.cpp"
-    )
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/nuturtle_robot" TYPE PROGRAM FILES "/home/ricojia/coffee_bot/ros_ws/src/nu_packages/nuturtle_robot/src/turtle_interface.cpp")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
@@ -113,66 +104,6 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
          NEW_RPATH "")
     if(CMAKE_INSTALL_DO_STRIP)
       execute_process(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/nuturtle_robot/turtle_interface")
-    endif()
-  endif()
-endif()
-
-if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/nuturtle_robot/rotation" AND
-     NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/nuturtle_robot/rotation")
-    file(RPATH_CHECK
-         FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/nuturtle_robot/rotation"
-         RPATH "")
-  endif()
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/nuturtle_robot" TYPE EXECUTABLE FILES "/home/ricojia/coffee_bot/ros_ws/devel/lib/nuturtle_robot/rotation")
-  if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/nuturtle_robot/rotation" AND
-     NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/nuturtle_robot/rotation")
-    file(RPATH_CHANGE
-         FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/nuturtle_robot/rotation"
-         OLD_RPATH "/home/ricojia/coffee_bot/ros_ws/devel/lib:/opt/ros/melodic/lib:"
-         NEW_RPATH "")
-    if(CMAKE_INSTALL_DO_STRIP)
-      execute_process(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/nuturtle_robot/rotation")
-    endif()
-  endif()
-endif()
-
-if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/nuturtle_robot/translation" AND
-     NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/nuturtle_robot/translation")
-    file(RPATH_CHECK
-         FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/nuturtle_robot/translation"
-         RPATH "")
-  endif()
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/nuturtle_robot" TYPE EXECUTABLE FILES "/home/ricojia/coffee_bot/ros_ws/devel/lib/nuturtle_robot/translation")
-  if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/nuturtle_robot/translation" AND
-     NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/nuturtle_robot/translation")
-    file(RPATH_CHANGE
-         FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/nuturtle_robot/translation"
-         OLD_RPATH "/home/ricojia/coffee_bot/ros_ws/devel/lib:/opt/ros/melodic/lib:"
-         NEW_RPATH "")
-    if(CMAKE_INSTALL_DO_STRIP)
-      execute_process(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/nuturtle_robot/translation")
-    endif()
-  endif()
-endif()
-
-if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/nuturtle_robot/real_waypoint" AND
-     NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/nuturtle_robot/real_waypoint")
-    file(RPATH_CHECK
-         FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/nuturtle_robot/real_waypoint"
-         RPATH "")
-  endif()
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/nuturtle_robot" TYPE EXECUTABLE FILES "/home/ricojia/coffee_bot/ros_ws/devel/lib/nuturtle_robot/real_waypoint")
-  if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/nuturtle_robot/real_waypoint" AND
-     NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/nuturtle_robot/real_waypoint")
-    file(RPATH_CHANGE
-         FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/nuturtle_robot/real_waypoint"
-         OLD_RPATH "/home/ricojia/coffee_bot/ros_ws/devel/lib:/opt/ros/melodic/lib:"
-         NEW_RPATH "")
-    if(CMAKE_INSTALL_DO_STRIP)
-      execute_process(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/nuturtle_robot/real_waypoint")
     endif()
   endif()
 endif()

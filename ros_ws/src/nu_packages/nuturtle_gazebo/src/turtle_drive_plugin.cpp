@@ -29,8 +29,6 @@ namespace gazebo
 
     /// \brief Wrap an angle to [0, 2*pi]
     inline double wrap_angle(double x){
-//        double min = 0;
-//        double max = 2*PI;
         double min = -1.0*PI;
         double max = PI;
         return min+ fmod((max - min + ( fmod( (x - min), (max - min) ) ) ), (max - min));
@@ -185,16 +183,10 @@ namespace gazebo
         {
             double time_diff = ( common::Time::GetWallTime() - this->prevUpdateRate ).Double();
             prev_msg_time = common::Time::GetWallTime();
-//            this-> omega_l = 1.0 * time_diff * (msg_ptr->left_velocity*1.0*max_motor_rot_vel/max_wheel_command);
-//            this-> omega_r = 1.0 * time_diff * (msg_ptr->right_velocity*1.0*max_motor_rot_vel/max_wheel_command);
             this-> omega_l = 1.0 * (msg_ptr->left_velocity*1.0*max_motor_rot_vel/max_wheel_command);
             this-> omega_r = 1.0 * (msg_ptr->right_velocity*1.0*max_motor_rot_vel/max_wheel_command);
 
-///  ROS_ERROR_STREAM("[Gazebo_plugin]: time_diff: "<<time_diff<<" | left_wheel increment: "<< (time_diff * (msg_ptr->left_velocity*1.0*max_motor_rot_vel/max_wheel_command))
-//            << " | omega_l: "<< omega_l);
-            ROS_ERROR_STREAM("[Gazebo_plugin]: omega_l:" <<omega_l<<" | omega_r: "<<omega_r);
-//            this-> omega_l += 1.0 * 10 * (msg_ptr->left_velocity*1.0*max_motor_rot_vel/max_wheel_command);
-//            this-> omega_r += 1.0 * 10 * (msg_ptr->right_velocity*1.0*max_motor_rot_vel/max_wheel_command);
+            ROS_INFO_STREAM("[Gazebo_plugin]: omega_l:" <<omega_l<<" | omega_r: "<<omega_r);
         }
 
 

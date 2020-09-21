@@ -725,8 +725,17 @@ actionlib_DIR:PATH=/opt/ros/melodic/share/actionlib/cmake
 //The directory containing a CMake configuration file for actionlib_msgs.
 actionlib_msgs_DIR:PATH=/opt/ros/melodic/share/actionlib_msgs/cmake
 
+//The directory containing a CMake configuration file for bond.
+bond_DIR:PATH=/opt/ros/melodic/share/bond/cmake
+
+//The directory containing a CMake configuration file for bondcpp.
+bondcpp_DIR:PATH=/opt/ros/melodic/share/bondcpp/cmake
+
 //The directory containing a CMake configuration file for catkin.
 catkin_DIR:PATH=/opt/ros/melodic/share/catkin/cmake
+
+//The directory containing a CMake configuration file for class_loader.
+class_loader_DIR:PATH=/opt/ros/melodic/share/class_loader/cmake
 
 //Value Computed by CMake
 coffee_bot_BINARY_DIR:STATIC=/home/ricojia/coffee_bot/ros_ws/build/coffee_bot
@@ -736,6 +745,12 @@ coffee_bot_SOURCE_DIR:STATIC=/home/ricojia/coffee_bot/ros_ws/src/coffee_bot
 
 //The directory containing a CMake configuration file for cpp_common.
 cpp_common_DIR:PATH=/opt/ros/melodic/share/cpp_common/cmake
+
+//The directory containing a CMake configuration file for diagnostic_msgs.
+diagnostic_msgs_DIR:PATH=/opt/ros/melodic/share/diagnostic_msgs/cmake
+
+//The directory containing a CMake configuration file for diagnostic_updater.
+diagnostic_updater_DIR:PATH=/opt/ros/melodic/share/diagnostic_updater/cmake
 
 //The directory containing a CMake configuration file for dynamic_reconfigure.
 dynamic_reconfigure_DIR:PATH=/opt/ros/melodic/share/dynamic_reconfigure/cmake
@@ -840,11 +855,32 @@ ignition-msgs1_DIR:PATH=/usr/lib/x86_64-linux-gnu/cmake/ignition-msgs1
 //The directory containing a CMake configuration file for ignition-transport4.
 ignition-transport4_DIR:PATH=/usr/lib/x86_64-linux-gnu/cmake/ignition-transport4
 
+//Dependencies for the target
+imu_filter_LIB_DEPENDS:STATIC=general;/opt/ros/melodic/lib/liborocos-kdl.so;general;/opt/ros/melodic/lib/liborocos-kdl.so.1.4.0;general;/opt/ros/melodic/lib/libtf2_ros.so;general;/opt/ros/melodic/lib/libactionlib.so;general;/opt/ros/melodic/lib/libtf2.so;general;/opt/ros/melodic/lib/libnodeletlib.so;general;/opt/ros/melodic/lib/libbondcpp.so;general;/opt/ros/melodic/lib/libclass_loader.so;general;/usr/lib/libPocoFoundation.so;general;/usr/lib/x86_64-linux-gnu/libdl.so;general;/opt/ros/melodic/lib/libroslib.so;general;/opt/ros/melodic/lib/librospack.so;general;/usr/lib/x86_64-linux-gnu/libpython2.7.so;general;/usr/lib/x86_64-linux-gnu/libboost_program_options.so;general;/usr/lib/x86_64-linux-gnu/libtinyxml2.so;general;/opt/ros/melodic/lib/libmessage_filters.so;general;/opt/ros/melodic/lib/libroscpp.so;general;/usr/lib/x86_64-linux-gnu/libboost_filesystem.so;general;/opt/ros/melodic/lib/libxmlrpcpp.so;general;/opt/ros/melodic/lib/librosconsole.so;general;/opt/ros/melodic/lib/librosconsole_log4cxx.so;general;/opt/ros/melodic/lib/librosconsole_backend_interface.so;general;/usr/lib/x86_64-linux-gnu/liblog4cxx.so;general;/usr/lib/x86_64-linux-gnu/libboost_regex.so;general;/opt/ros/melodic/lib/libdynamic_reconfigure_config_init_mutex.so;general;/opt/ros/melodic/lib/libroscpp_serialization.so;general;/opt/ros/melodic/lib/librostime.so;general;/opt/ros/melodic/lib/libcpp_common.so;general;/usr/lib/x86_64-linux-gnu/libboost_system.so;general;/usr/lib/x86_64-linux-gnu/libboost_thread.so;general;/usr/lib/x86_64-linux-gnu/libboost_chrono.so;general;/usr/lib/x86_64-linux-gnu/libboost_date_time.so;general;/usr/lib/x86_64-linux-gnu/libboost_atomic.so;general;/usr/lib/x86_64-linux-gnu/libpthread.so;general;/usr/lib/x86_64-linux-gnu/libconsole_bridge.so.0.4;general;/usr/lib/x86_64-linux-gnu/libboost_system.so;general;/usr/lib/x86_64-linux-gnu/libboost_thread.so;general;/usr/lib/x86_64-linux-gnu/libboost_chrono.so;general;/usr/lib/x86_64-linux-gnu/libboost_date_time.so;general;/usr/lib/x86_64-linux-gnu/libboost_atomic.so;general;/usr/lib/x86_64-linux-gnu/libpthread.so;
+
+//Value Computed by CMake
+imu_filter_madgwick_BINARY_DIR:STATIC=/home/ricojia/coffee_bot/ros_ws/build/onboard_pkgs/phidget_imu/phidgets_drivers/imu_filter_madgwick
+
+//Value Computed by CMake
+imu_filter_madgwick_SOURCE_DIR:STATIC=/home/ricojia/coffee_bot/ros_ws/src/onboard_pkgs/phidget_imu/phidgets_drivers/imu_filter_madgwick
+
+//Dependencies for the target
+imu_filter_nodelet_LIB_DEPENDS:STATIC=general;imu_filter;general;/opt/ros/melodic/lib/liborocos-kdl.so;general;/opt/ros/melodic/lib/liborocos-kdl.so.1.4.0;general;/opt/ros/melodic/lib/libtf2_ros.so;general;/opt/ros/melodic/lib/libactionlib.so;general;/opt/ros/melodic/lib/libtf2.so;general;/opt/ros/melodic/lib/libnodeletlib.so;general;/opt/ros/melodic/lib/libbondcpp.so;general;/opt/ros/melodic/lib/libclass_loader.so;general;/usr/lib/libPocoFoundation.so;general;/usr/lib/x86_64-linux-gnu/libdl.so;general;/opt/ros/melodic/lib/libroslib.so;general;/opt/ros/melodic/lib/librospack.so;general;/usr/lib/x86_64-linux-gnu/libpython2.7.so;general;/usr/lib/x86_64-linux-gnu/libboost_program_options.so;general;/usr/lib/x86_64-linux-gnu/libtinyxml2.so;general;/opt/ros/melodic/lib/libmessage_filters.so;general;/opt/ros/melodic/lib/libroscpp.so;general;/usr/lib/x86_64-linux-gnu/libboost_filesystem.so;general;/opt/ros/melodic/lib/libxmlrpcpp.so;general;/opt/ros/melodic/lib/librosconsole.so;general;/opt/ros/melodic/lib/librosconsole_log4cxx.so;general;/opt/ros/melodic/lib/librosconsole_backend_interface.so;general;/usr/lib/x86_64-linux-gnu/liblog4cxx.so;general;/usr/lib/x86_64-linux-gnu/libboost_regex.so;general;/opt/ros/melodic/lib/libdynamic_reconfigure_config_init_mutex.so;general;/opt/ros/melodic/lib/libroscpp_serialization.so;general;/opt/ros/melodic/lib/librostime.so;general;/opt/ros/melodic/lib/libcpp_common.so;general;/usr/lib/x86_64-linux-gnu/libboost_system.so;general;/usr/lib/x86_64-linux-gnu/libboost_thread.so;general;/usr/lib/x86_64-linux-gnu/libboost_chrono.so;general;/usr/lib/x86_64-linux-gnu/libboost_date_time.so;general;/usr/lib/x86_64-linux-gnu/libboost_atomic.so;general;/usr/lib/x86_64-linux-gnu/libpthread.so;general;/usr/lib/x86_64-linux-gnu/libconsole_bridge.so.0.4;general;/usr/lib/x86_64-linux-gnu/libboost_system.so;general;/usr/lib/x86_64-linux-gnu/libboost_thread.so;general;/usr/lib/x86_64-linux-gnu/libboost_chrono.so;general;/usr/lib/x86_64-linux-gnu/libboost_date_time.so;general;/usr/lib/x86_64-linux-gnu/libboost_atomic.so;general;/usr/lib/x86_64-linux-gnu/libpthread.so;
+
 //The directory containing a CMake configuration file for jsoncpp.
 jsoncpp_DIR:PATH=/usr/lib/x86_64-linux-gnu/cmake/jsoncpp
 
 //Path to a library.
 lib:FILEPATH=/opt/ros/melodic/lib/libtf2.so
+
+//Value Computed by CMake
+libphidget21_BINARY_DIR:STATIC=/home/ricojia/coffee_bot/ros_ws/build/onboard_pkgs/phidget_imu/phidgets_drivers/libphidget21
+
+//The directory containing a CMake configuration file for libphidget21.
+libphidget21_DIR:PATH=/home/ricojia/coffee_bot/ros_ws/devel/share/libphidget21/cmake
+
+//Value Computed by CMake
+libphidget21_SOURCE_DIR:STATIC=/home/ricojia/coffee_bot/ros_ws/src/onboard_pkgs/phidget_imu/phidgets_drivers/libphidget21
 
 //The directory containing a CMake configuration file for message_filters.
 message_filters_DIR:PATH=/opt/ros/melodic/share/message_filters/cmake
@@ -857,6 +893,9 @@ message_runtime_DIR:PATH=/opt/ros/melodic/share/message_runtime/cmake
 
 //The directory containing a CMake configuration file for nav_msgs.
 nav_msgs_DIR:PATH=/opt/ros/melodic/share/nav_msgs/cmake
+
+//The directory containing a CMake configuration file for nodelet.
+nodelet_DIR:PATH=/opt/ros/melodic/share/nodelet/cmake
 
 //Value Computed by CMake
 nuslam_BINARY_DIR:STATIC=/home/ricojia/coffee_bot/ros_ws/build/nu_packages/nuslam
@@ -886,16 +925,82 @@ nuturtle_robot_BINARY_DIR:STATIC=/home/ricojia/coffee_bot/ros_ws/build/nu_packag
 nuturtle_robot_SOURCE_DIR:STATIC=/home/ricojia/coffee_bot/ros_ws/src/nu_packages/nuturtle_robot
 
 //Value Computed by CMake
-nuturtlebot_BINARY_DIR:STATIC=/home/ricojia/coffee_bot/ros_ws/build/nu_packages/nuturtle
+nuturtlebot_BINARY_DIR:STATIC=/home/ricojia/coffee_bot/ros_ws/build/onboard_pkgs/nuturtle
 
 //The directory containing a CMake configuration file for nuturtlebot.
 nuturtlebot_DIR:PATH=/home/ricojia/coffee_bot/ros_ws/devel/share/nuturtlebot/cmake
 
 //Value Computed by CMake
-nuturtlebot_SOURCE_DIR:STATIC=/home/ricojia/coffee_bot/ros_ws/src/nu_packages/nuturtle
+nuturtlebot_SOURCE_DIR:STATIC=/home/ricojia/coffee_bot/ros_ws/src/onboard_pkgs/nuturtle
 
 //Path to a library.
 onelib:FILEPATH=/usr/lib/x86_64-linux-gnu/libsdformat.so
+
+//Value Computed by CMake
+phidgets_api_BINARY_DIR:STATIC=/home/ricojia/coffee_bot/ros_ws/build/onboard_pkgs/phidget_imu/phidgets_drivers/phidgets_api
+
+//The directory containing a CMake configuration file for phidgets_api.
+phidgets_api_DIR:PATH=/home/ricojia/coffee_bot/ros_ws/devel/share/phidgets_api/cmake
+
+//Dependencies for the target
+phidgets_api_LIB_DEPENDS:STATIC=general;/home/ricojia/coffee_bot/ros_ws/devel/lib/libphidget21.so;
+
+//Value Computed by CMake
+phidgets_api_SOURCE_DIR:STATIC=/home/ricojia/coffee_bot/ros_ws/src/onboard_pkgs/phidget_imu/phidgets_drivers/phidgets_api
+
+//Value Computed by CMake
+phidgets_drivers_BINARY_DIR:STATIC=/home/ricojia/coffee_bot/ros_ws/build/onboard_pkgs/phidget_imu/phidgets_drivers/phidgets_drivers
+
+//Value Computed by CMake
+phidgets_drivers_SOURCE_DIR:STATIC=/home/ricojia/coffee_bot/ros_ws/src/onboard_pkgs/phidget_imu/phidgets_drivers/phidgets_drivers
+
+//Value Computed by CMake
+phidgets_high_speed_encoder_BINARY_DIR:STATIC=/home/ricojia/coffee_bot/ros_ws/build/onboard_pkgs/phidget_imu/phidgets_drivers/phidgets_high_speed_encoder
+
+//Dependencies for the target
+phidgets_high_speed_encoder_LIB_DEPENDS:STATIC=general;/opt/ros/melodic/lib/libnodeletlib.so;general;/opt/ros/melodic/lib/libbondcpp.so;general;phidgets_api;general;/home/ricojia/coffee_bot/ros_ws/devel/lib/libphidget21.so;general;/opt/ros/melodic/lib/libclass_loader.so;general;/usr/lib/libPocoFoundation.so;general;/usr/lib/x86_64-linux-gnu/libdl.so;general;/opt/ros/melodic/lib/libroslib.so;general;/opt/ros/melodic/lib/librospack.so;general;/usr/lib/x86_64-linux-gnu/libpython2.7.so;general;/usr/lib/x86_64-linux-gnu/libboost_program_options.so;general;/usr/lib/x86_64-linux-gnu/libtinyxml2.so;general;/opt/ros/melodic/lib/libroscpp.so;general;/usr/lib/x86_64-linux-gnu/libboost_filesystem.so;general;/opt/ros/melodic/lib/librosconsole.so;general;/opt/ros/melodic/lib/librosconsole_log4cxx.so;general;/opt/ros/melodic/lib/librosconsole_backend_interface.so;general;/usr/lib/x86_64-linux-gnu/liblog4cxx.so;general;/usr/lib/x86_64-linux-gnu/libboost_regex.so;general;/opt/ros/melodic/lib/libxmlrpcpp.so;general;/opt/ros/melodic/lib/libroscpp_serialization.so;general;/opt/ros/melodic/lib/librostime.so;general;/opt/ros/melodic/lib/libcpp_common.so;general;/usr/lib/x86_64-linux-gnu/libboost_system.so;general;/usr/lib/x86_64-linux-gnu/libboost_thread.so;general;/usr/lib/x86_64-linux-gnu/libboost_chrono.so;general;/usr/lib/x86_64-linux-gnu/libboost_date_time.so;general;/usr/lib/x86_64-linux-gnu/libboost_atomic.so;general;/usr/lib/x86_64-linux-gnu/libpthread.so;general;/usr/lib/x86_64-linux-gnu/libconsole_bridge.so.0.4;
+
+//Value Computed by CMake
+phidgets_high_speed_encoder_SOURCE_DIR:STATIC=/home/ricojia/coffee_bot/ros_ws/src/onboard_pkgs/phidget_imu/phidgets_drivers/phidgets_high_speed_encoder
+
+//Dependencies for the target
+phidgets_high_speed_encoder_nodelet_LIB_DEPENDS:STATIC=general;/opt/ros/melodic/lib/libnodeletlib.so;general;/opt/ros/melodic/lib/libbondcpp.so;general;phidgets_api;general;/home/ricojia/coffee_bot/ros_ws/devel/lib/libphidget21.so;general;/opt/ros/melodic/lib/libclass_loader.so;general;/usr/lib/libPocoFoundation.so;general;/usr/lib/x86_64-linux-gnu/libdl.so;general;/opt/ros/melodic/lib/libroslib.so;general;/opt/ros/melodic/lib/librospack.so;general;/usr/lib/x86_64-linux-gnu/libpython2.7.so;general;/usr/lib/x86_64-linux-gnu/libboost_program_options.so;general;/usr/lib/x86_64-linux-gnu/libtinyxml2.so;general;/opt/ros/melodic/lib/libroscpp.so;general;/usr/lib/x86_64-linux-gnu/libboost_filesystem.so;general;/opt/ros/melodic/lib/librosconsole.so;general;/opt/ros/melodic/lib/librosconsole_log4cxx.so;general;/opt/ros/melodic/lib/librosconsole_backend_interface.so;general;/usr/lib/x86_64-linux-gnu/liblog4cxx.so;general;/usr/lib/x86_64-linux-gnu/libboost_regex.so;general;/opt/ros/melodic/lib/libxmlrpcpp.so;general;/opt/ros/melodic/lib/libroscpp_serialization.so;general;/opt/ros/melodic/lib/librostime.so;general;/opt/ros/melodic/lib/libcpp_common.so;general;/usr/lib/x86_64-linux-gnu/libboost_system.so;general;/usr/lib/x86_64-linux-gnu/libboost_thread.so;general;/usr/lib/x86_64-linux-gnu/libboost_chrono.so;general;/usr/lib/x86_64-linux-gnu/libboost_date_time.so;general;/usr/lib/x86_64-linux-gnu/libboost_atomic.so;general;/usr/lib/x86_64-linux-gnu/libpthread.so;general;/usr/lib/x86_64-linux-gnu/libconsole_bridge.so.0.4;general;phidgets_high_speed_encoder;
+
+//Value Computed by CMake
+phidgets_ik_BINARY_DIR:STATIC=/home/ricojia/coffee_bot/ros_ws/build/onboard_pkgs/phidget_imu/phidgets_drivers/phidgets_ik
+
+//Dependencies for the target
+phidgets_ik_LIB_DEPENDS:STATIC=general;/opt/ros/melodic/lib/libnodeletlib.so;general;/opt/ros/melodic/lib/libbondcpp.so;general;phidgets_api;general;/home/ricojia/coffee_bot/ros_ws/devel/lib/libphidget21.so;general;/opt/ros/melodic/lib/libclass_loader.so;general;/usr/lib/libPocoFoundation.so;general;/usr/lib/x86_64-linux-gnu/libdl.so;general;/opt/ros/melodic/lib/libroslib.so;general;/opt/ros/melodic/lib/librospack.so;general;/usr/lib/x86_64-linux-gnu/libpython2.7.so;general;/usr/lib/x86_64-linux-gnu/libboost_program_options.so;general;/usr/lib/x86_64-linux-gnu/libtinyxml2.so;general;/opt/ros/melodic/lib/libroscpp.so;general;/usr/lib/x86_64-linux-gnu/libboost_filesystem.so;general;/opt/ros/melodic/lib/librosconsole.so;general;/opt/ros/melodic/lib/librosconsole_log4cxx.so;general;/opt/ros/melodic/lib/librosconsole_backend_interface.so;general;/usr/lib/x86_64-linux-gnu/liblog4cxx.so;general;/usr/lib/x86_64-linux-gnu/libboost_regex.so;general;/opt/ros/melodic/lib/libxmlrpcpp.so;general;/opt/ros/melodic/lib/libroscpp_serialization.so;general;/opt/ros/melodic/lib/librostime.so;general;/opt/ros/melodic/lib/libcpp_common.so;general;/usr/lib/x86_64-linux-gnu/libboost_system.so;general;/usr/lib/x86_64-linux-gnu/libboost_thread.so;general;/usr/lib/x86_64-linux-gnu/libboost_chrono.so;general;/usr/lib/x86_64-linux-gnu/libboost_date_time.so;general;/usr/lib/x86_64-linux-gnu/libboost_atomic.so;general;/usr/lib/x86_64-linux-gnu/libpthread.so;general;/usr/lib/x86_64-linux-gnu/libconsole_bridge.so.0.4;
+
+//Value Computed by CMake
+phidgets_ik_SOURCE_DIR:STATIC=/home/ricojia/coffee_bot/ros_ws/src/onboard_pkgs/phidget_imu/phidgets_drivers/phidgets_ik
+
+//Dependencies for the target
+phidgets_ik_nodelet_LIB_DEPENDS:STATIC=general;/opt/ros/melodic/lib/libnodeletlib.so;general;/opt/ros/melodic/lib/libbondcpp.so;general;phidgets_api;general;/home/ricojia/coffee_bot/ros_ws/devel/lib/libphidget21.so;general;/opt/ros/melodic/lib/libclass_loader.so;general;/usr/lib/libPocoFoundation.so;general;/usr/lib/x86_64-linux-gnu/libdl.so;general;/opt/ros/melodic/lib/libroslib.so;general;/opt/ros/melodic/lib/librospack.so;general;/usr/lib/x86_64-linux-gnu/libpython2.7.so;general;/usr/lib/x86_64-linux-gnu/libboost_program_options.so;general;/usr/lib/x86_64-linux-gnu/libtinyxml2.so;general;/opt/ros/melodic/lib/libroscpp.so;general;/usr/lib/x86_64-linux-gnu/libboost_filesystem.so;general;/opt/ros/melodic/lib/librosconsole.so;general;/opt/ros/melodic/lib/librosconsole_log4cxx.so;general;/opt/ros/melodic/lib/librosconsole_backend_interface.so;general;/usr/lib/x86_64-linux-gnu/liblog4cxx.so;general;/usr/lib/x86_64-linux-gnu/libboost_regex.so;general;/opt/ros/melodic/lib/libxmlrpcpp.so;general;/opt/ros/melodic/lib/libroscpp_serialization.so;general;/opt/ros/melodic/lib/librostime.so;general;/opt/ros/melodic/lib/libcpp_common.so;general;/usr/lib/x86_64-linux-gnu/libboost_system.so;general;/usr/lib/x86_64-linux-gnu/libboost_thread.so;general;/usr/lib/x86_64-linux-gnu/libboost_chrono.so;general;/usr/lib/x86_64-linux-gnu/libboost_date_time.so;general;/usr/lib/x86_64-linux-gnu/libboost_atomic.so;general;/usr/lib/x86_64-linux-gnu/libpthread.so;general;/usr/lib/x86_64-linux-gnu/libconsole_bridge.so.0.4;general;phidgets_ik;
+
+//Value Computed by CMake
+phidgets_imu_BINARY_DIR:STATIC=/home/ricojia/coffee_bot/ros_ws/build/onboard_pkgs/phidget_imu/phidgets_drivers/phidgets_imu
+
+//Dependencies for the target
+phidgets_imu_LIB_DEPENDS:STATIC=general;/opt/ros/melodic/lib/libnodeletlib.so;general;/opt/ros/melodic/lib/libbondcpp.so;general;/opt/ros/melodic/lib/libclass_loader.so;general;/usr/lib/libPocoFoundation.so;general;/usr/lib/x86_64-linux-gnu/libdl.so;general;/opt/ros/melodic/lib/libroslib.so;general;/opt/ros/melodic/lib/librospack.so;general;/usr/lib/x86_64-linux-gnu/libpython2.7.so;general;/usr/lib/x86_64-linux-gnu/libboost_program_options.so;general;/usr/lib/x86_64-linux-gnu/libtinyxml2.so;general;phidgets_api;general;/home/ricojia/coffee_bot/ros_ws/devel/lib/libphidget21.so;general;/opt/ros/melodic/lib/libroscpp.so;general;/usr/lib/x86_64-linux-gnu/libboost_filesystem.so;general;/opt/ros/melodic/lib/librosconsole.so;general;/opt/ros/melodic/lib/librosconsole_log4cxx.so;general;/opt/ros/melodic/lib/librosconsole_backend_interface.so;general;/usr/lib/x86_64-linux-gnu/liblog4cxx.so;general;/usr/lib/x86_64-linux-gnu/libboost_regex.so;general;/opt/ros/melodic/lib/libxmlrpcpp.so;general;/opt/ros/melodic/lib/libroscpp_serialization.so;general;/opt/ros/melodic/lib/librostime.so;general;/opt/ros/melodic/lib/libcpp_common.so;general;/usr/lib/x86_64-linux-gnu/libboost_system.so;general;/usr/lib/x86_64-linux-gnu/libboost_thread.so;general;/usr/lib/x86_64-linux-gnu/libboost_chrono.so;general;/usr/lib/x86_64-linux-gnu/libboost_date_time.so;general;/usr/lib/x86_64-linux-gnu/libboost_atomic.so;general;/usr/lib/x86_64-linux-gnu/libpthread.so;general;/usr/lib/x86_64-linux-gnu/libconsole_bridge.so.0.4;
+
+//Value Computed by CMake
+phidgets_imu_SOURCE_DIR:STATIC=/home/ricojia/coffee_bot/ros_ws/src/onboard_pkgs/phidget_imu/phidgets_drivers/phidgets_imu
+
+//Dependencies for the target
+phidgets_imu_nodelet_LIB_DEPENDS:STATIC=general;/opt/ros/melodic/lib/libnodeletlib.so;general;/opt/ros/melodic/lib/libbondcpp.so;general;/opt/ros/melodic/lib/libclass_loader.so;general;/usr/lib/libPocoFoundation.so;general;/usr/lib/x86_64-linux-gnu/libdl.so;general;/opt/ros/melodic/lib/libroslib.so;general;/opt/ros/melodic/lib/librospack.so;general;/usr/lib/x86_64-linux-gnu/libpython2.7.so;general;/usr/lib/x86_64-linux-gnu/libboost_program_options.so;general;/usr/lib/x86_64-linux-gnu/libtinyxml2.so;general;phidgets_api;general;/home/ricojia/coffee_bot/ros_ws/devel/lib/libphidget21.so;general;/opt/ros/melodic/lib/libroscpp.so;general;/usr/lib/x86_64-linux-gnu/libboost_filesystem.so;general;/opt/ros/melodic/lib/librosconsole.so;general;/opt/ros/melodic/lib/librosconsole_log4cxx.so;general;/opt/ros/melodic/lib/librosconsole_backend_interface.so;general;/usr/lib/x86_64-linux-gnu/liblog4cxx.so;general;/usr/lib/x86_64-linux-gnu/libboost_regex.so;general;/opt/ros/melodic/lib/libxmlrpcpp.so;general;/opt/ros/melodic/lib/libroscpp_serialization.so;general;/opt/ros/melodic/lib/librostime.so;general;/opt/ros/melodic/lib/libcpp_common.so;general;/usr/lib/x86_64-linux-gnu/libboost_system.so;general;/usr/lib/x86_64-linux-gnu/libboost_thread.so;general;/usr/lib/x86_64-linux-gnu/libboost_chrono.so;general;/usr/lib/x86_64-linux-gnu/libboost_date_time.so;general;/usr/lib/x86_64-linux-gnu/libboost_atomic.so;general;/usr/lib/x86_64-linux-gnu/libpthread.so;general;/usr/lib/x86_64-linux-gnu/libconsole_bridge.so.0.4;general;phidgets_imu;
+
+//Value Computed by CMake
+phidgets_msgs_BINARY_DIR:STATIC=/home/ricojia/coffee_bot/ros_ws/build/onboard_pkgs/phidget_imu/phidgets_drivers/phidgets_msgs
+
+//The directory containing a CMake configuration file for phidgets_msgs.
+phidgets_msgs_DIR:PATH=/home/ricojia/coffee_bot/ros_ws/devel/share/phidgets_msgs/cmake
+
+//Value Computed by CMake
+phidgets_msgs_SOURCE_DIR:STATIC=/home/ricojia/coffee_bot/ros_ws/src/onboard_pkgs/phidget_imu/phidgets_drivers/phidgets_msgs
+
+//The directory containing a CMake configuration file for pluginlib.
+pluginlib_DIR:PATH=/opt/ros/melodic/share/pluginlib/cmake
 
 //Value Computed by CMake
 rigid2d_BINARY_DIR:STATIC=/home/ricojia/coffee_bot/ros_ws/build/nu_packages/rigid2d
@@ -908,6 +1013,12 @@ rigid2d_LIB_DEPENDS:STATIC=general;/opt/ros/melodic/lib/libtf.so;general;/opt/ro
 
 //Value Computed by CMake
 rigid2d_SOURCE_DIR:STATIC=/home/ricojia/coffee_bot/ros_ws/src/nu_packages/rigid2d
+
+//Value Computed by CMake
+robot_pose_ekf_BINARY_DIR:STATIC=/home/ricojia/coffee_bot/ros_ws/build/nu_packages/robot_pose_ekf
+
+//Value Computed by CMake
+robot_pose_ekf_SOURCE_DIR:STATIC=/home/ricojia/coffee_bot/ros_ws/src/nu_packages/robot_pose_ekf
 
 //The directory containing a CMake configuration file for rosconsole.
 rosconsole_DIR:PATH=/opt/ros/melodic/share/rosconsole/cmake
@@ -927,6 +1038,9 @@ rosgraph_DIR:PATH=/opt/ros/melodic/share/rosgraph/cmake
 //The directory containing a CMake configuration file for rosgraph_msgs.
 rosgraph_msgs_DIR:PATH=/opt/ros/melodic/share/rosgraph_msgs/cmake
 
+//The directory containing a CMake configuration file for roslaunch.
+roslaunch_DIR:PATH=/opt/ros/melodic/share/roslaunch/cmake
+
 //The directory containing a CMake configuration file for roslib.
 roslib_DIR:PATH=/opt/ros/melodic/share/roslib/cmake
 
@@ -942,8 +1056,17 @@ rostest_DIR:PATH=/opt/ros/melodic/share/rostest/cmake
 //The directory containing a CMake configuration file for rostime.
 rostime_DIR:PATH=/opt/ros/melodic/share/rostime/cmake
 
+//Value Computed by CMake
+rplidar_ros_BINARY_DIR:STATIC=/home/ricojia/coffee_bot/ros_ws/build/onboard_pkgs/rplidar_ros
+
+//Value Computed by CMake
+rplidar_ros_SOURCE_DIR:STATIC=/home/ricojia/coffee_bot/ros_ws/src/onboard_pkgs/rplidar_ros
+
 //The directory containing a CMake configuration file for sensor_msgs.
 sensor_msgs_DIR:PATH=/opt/ros/melodic/share/sensor_msgs/cmake
+
+//The directory containing a CMake configuration file for smclib.
+smclib_DIR:PATH=/opt/ros/melodic/share/smclib/cmake
 
 //The directory containing a CMake configuration file for std_msgs.
 std_msgs_DIR:PATH=/opt/ros/melodic/share/std_msgs/cmake
@@ -953,6 +1076,9 @@ std_srvs_DIR:PATH=/opt/ros/melodic/share/std_srvs/cmake
 
 //The directory containing a CMake configuration file for tf2.
 tf2_DIR:PATH=/opt/ros/melodic/share/tf2/cmake
+
+//The directory containing a CMake configuration file for tf2_geometry_msgs.
+tf2_geometry_msgs_DIR:PATH=/opt/ros/melodic/share/tf2_geometry_msgs/cmake
 
 //The directory containing a CMake configuration file for tf2_msgs.
 tf2_msgs_DIR:PATH=/opt/ros/melodic/share/tf2_msgs/cmake
@@ -1115,6 +1241,40 @@ AVUTIL_libavutil_INCLUDEDIR:INTERNAL=
 AVUTIL_libavutil_LIBDIR:INTERNAL=
 AVUTIL_libavutil_PREFIX:INTERNAL=
 AVUTIL_libavutil_VERSION:INTERNAL=
+BFL_CFLAGS:INTERNAL=-I/opt/ros/melodic/include;-I
+BFL_CFLAGS_I:INTERNAL=
+BFL_CFLAGS_OTHER:INTERNAL=
+BFL_FOUND:INTERNAL=1
+BFL_INCLUDEDIR:INTERNAL=/opt/ros/melodic/include
+BFL_INCLUDE_DIRS:INTERNAL=/opt/ros/melodic/include
+BFL_LDFLAGS:INTERNAL=-L/opt/ros/melodic/lib;-lorocos-bfl
+BFL_LDFLAGS_OTHER:INTERNAL=
+BFL_LIBDIR:INTERNAL=/opt/ros/melodic/lib
+BFL_LIBRARIES:INTERNAL=orocos-bfl
+BFL_LIBRARY_DIRS:INTERNAL=/opt/ros/melodic/lib
+BFL_LIBS:INTERNAL=
+BFL_LIBS_L:INTERNAL=
+BFL_LIBS_OTHER:INTERNAL=
+BFL_LIBS_PATHS:INTERNAL=
+BFL_PREFIX:INTERNAL=/opt/ros/melodic
+BFL_STATIC_CFLAGS:INTERNAL=-I/opt/ros/melodic/include;-I
+BFL_STATIC_CFLAGS_I:INTERNAL=
+BFL_STATIC_CFLAGS_OTHER:INTERNAL=
+BFL_STATIC_INCLUDE_DIRS:INTERNAL=/opt/ros/melodic/include
+BFL_STATIC_LDFLAGS:INTERNAL=-L/opt/ros/melodic/lib;-lorocos-bfl
+BFL_STATIC_LDFLAGS_OTHER:INTERNAL=
+BFL_STATIC_LIBDIR:INTERNAL=
+BFL_STATIC_LIBRARIES:INTERNAL=orocos-bfl
+BFL_STATIC_LIBRARY_DIRS:INTERNAL=/opt/ros/melodic/lib
+BFL_STATIC_LIBS:INTERNAL=
+BFL_STATIC_LIBS_L:INTERNAL=
+BFL_STATIC_LIBS_OTHER:INTERNAL=
+BFL_STATIC_LIBS_PATHS:INTERNAL=
+BFL_VERSION:INTERNAL=0.8.0
+BFL_orocos-bfl_INCLUDEDIR:INTERNAL=
+BFL_orocos-bfl_LIBDIR:INTERNAL=
+BFL_orocos-bfl_PREFIX:INTERNAL=
+BFL_orocos-bfl_VERSION:INTERNAL=
 BULLET_CFLAGS:INTERNAL=-I/usr/include/bullet
 BULLET_CFLAGS_I:INTERNAL=
 BULLET_CFLAGS_OTHER:INTERNAL=
@@ -1302,7 +1462,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=11
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=19
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP
@@ -1907,6 +2067,7 @@ __pkg_config_arguments_AVCODEC:INTERNAL=libavcodec
 __pkg_config_arguments_AVDEVICE:INTERNAL=libavdevice >= 56.4.100
 __pkg_config_arguments_AVFORMAT:INTERNAL=libavformat
 __pkg_config_arguments_AVUTIL:INTERNAL=libavutil
+__pkg_config_arguments_BFL:INTERNAL=REQUIRED;orocos-bfl
 __pkg_config_arguments_BULLET:INTERNAL=bullet>=2.82
 __pkg_config_arguments_GTS:INTERNAL=gts
 __pkg_config_arguments_JSONCPP:INTERNAL=jsoncpp
@@ -1921,6 +2082,7 @@ __pkg_config_checked_AVCODEC:INTERNAL=1
 __pkg_config_checked_AVDEVICE:INTERNAL=1
 __pkg_config_checked_AVFORMAT:INTERNAL=1
 __pkg_config_checked_AVUTIL:INTERNAL=1
+__pkg_config_checked_BFL:INTERNAL=1
 __pkg_config_checked_BULLET:INTERNAL=1
 __pkg_config_checked_GTS:INTERNAL=1
 __pkg_config_checked_JSONCPP:INTERNAL=1

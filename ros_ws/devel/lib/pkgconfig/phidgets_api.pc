@@ -1,0 +1,8 @@
+prefix=/home/ricojia/coffee_bot/ros_ws/devel
+
+Name: phidgets_api
+Description: Description of phidgets_api
+Version: 0.7.10
+Cflags: -I/home/ricojia/coffee_bot/ros_ws/src/onboard_pkgs/phidget_imu/phidgets_drivers/phidgets_api/include
+Libs: -L${prefix}/lib -lphidgets_api
+Requires: libphidget21

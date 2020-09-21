@@ -1,6 +1,5 @@
 file(REMOVE_RECURSE
   "CMakeFiles/nuturtle_robot_generate_messages_eus"
-  "/home/ricojia/coffee_bot/ros_ws/devel/share/roseus/ros/nuturtle_robot/srv/Start.l"
   "/home/ricojia/coffee_bot/ros_ws/devel/share/roseus/ros/nuturtle_robot/manifest.l"
 )
 

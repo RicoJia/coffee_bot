@@ -1,6 +1,8 @@
 # generated from genmsg/cmake/pkg-genmsg.cmake.em
 
-message(STATUS "nuturtle_robot: 0 messages, 1 services")
+message(WARNING "Invoking generate_messages() without having added any message or service file before.
+You should either add add_message_files() and/or add_service_files() calls or remove the invocation of generate_messages().")
+message(STATUS "nuturtle_robot: 0 messages, 0 services")
 
 set(MSG_I_FLAGS "")
 
@@ -17,11 +19,6 @@ add_custom_target(nuturtle_robot_generate_messages ALL)
 
 
 
-get_filename_component(_filename "/home/ricojia/coffee_bot/ros_ws/src/nu_packages/nuturtle_robot/srv/Start.srv" NAME_WE)
-add_custom_target(_nuturtle_robot_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "nuturtle_robot" "/home/ricojia/coffee_bot/ros_ws/src/nu_packages/nuturtle_robot/srv/Start.srv" ""
-)
-
 #
 #  langs = gencpp;geneus;genlisp;gennodejs;genpy
 #
@@ -30,12 +27,6 @@ add_custom_target(_nuturtle_robot_generate_messages_check_deps_${_filename}
 ### Generating Messages
 
 ### Generating Services
-_generate_srv_cpp(nuturtle_robot
-  "/home/ricojia/coffee_bot/ros_ws/src/nu_packages/nuturtle_robot/srv/Start.srv"
-  "${MSG_I_FLAGS}"
-  ""
-  ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/nuturtle_robot
-)
 
 ### Generating Module File
 _generate_module_cpp(nuturtle_robot
@@ -49,8 +40,6 @@ add_custom_target(nuturtle_robot_generate_messages_cpp
 add_dependencies(nuturtle_robot_generate_messages nuturtle_robot_generate_messages_cpp)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/ricojia/coffee_bot/ros_ws/src/nu_packages/nuturtle_robot/srv/Start.srv" NAME_WE)
-add_dependencies(nuturtle_robot_generate_messages_cpp _nuturtle_robot_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
 add_custom_target(nuturtle_robot_gencpp)
@@ -63,12 +52,6 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS nuturtle_robot_generate_messages_cp
 ### Generating Messages
 
 ### Generating Services
-_generate_srv_eus(nuturtle_robot
-  "/home/ricojia/coffee_bot/ros_ws/src/nu_packages/nuturtle_robot/srv/Start.srv"
-  "${MSG_I_FLAGS}"
-  ""
-  ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/nuturtle_robot
-)
 
 ### Generating Module File
 _generate_module_eus(nuturtle_robot
@@ -82,8 +65,6 @@ add_custom_target(nuturtle_robot_generate_messages_eus
 add_dependencies(nuturtle_robot_generate_messages nuturtle_robot_generate_messages_eus)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/ricojia/coffee_bot/ros_ws/src/nu_packages/nuturtle_robot/srv/Start.srv" NAME_WE)
-add_dependencies(nuturtle_robot_generate_messages_eus _nuturtle_robot_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
 add_custom_target(nuturtle_robot_geneus)
@@ -96,12 +77,6 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS nuturtle_robot_generate_messages_eu
 ### Generating Messages
 
 ### Generating Services
-_generate_srv_lisp(nuturtle_robot
-  "/home/ricojia/coffee_bot/ros_ws/src/nu_packages/nuturtle_robot/srv/Start.srv"
-  "${MSG_I_FLAGS}"
-  ""
-  ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/nuturtle_robot
-)
 
 ### Generating Module File
 _generate_module_lisp(nuturtle_robot
@@ -115,8 +90,6 @@ add_custom_target(nuturtle_robot_generate_messages_lisp
 add_dependencies(nuturtle_robot_generate_messages nuturtle_robot_generate_messages_lisp)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/ricojia/coffee_bot/ros_ws/src/nu_packages/nuturtle_robot/srv/Start.srv" NAME_WE)
-add_dependencies(nuturtle_robot_generate_messages_lisp _nuturtle_robot_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
 add_custom_target(nuturtle_robot_genlisp)
@@ -129,12 +102,6 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS nuturtle_robot_generate_messages_li
 ### Generating Messages
 
 ### Generating Services
-_generate_srv_nodejs(nuturtle_robot
-  "/home/ricojia/coffee_bot/ros_ws/src/nu_packages/nuturtle_robot/srv/Start.srv"
-  "${MSG_I_FLAGS}"
-  ""
-  ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/nuturtle_robot
-)
 
 ### Generating Module File
 _generate_module_nodejs(nuturtle_robot
@@ -148,8 +115,6 @@ add_custom_target(nuturtle_robot_generate_messages_nodejs
 add_dependencies(nuturtle_robot_generate_messages nuturtle_robot_generate_messages_nodejs)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/ricojia/coffee_bot/ros_ws/src/nu_packages/nuturtle_robot/srv/Start.srv" NAME_WE)
-add_dependencies(nuturtle_robot_generate_messages_nodejs _nuturtle_robot_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
 add_custom_target(nuturtle_robot_gennodejs)
@@ -162,12 +127,6 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS nuturtle_robot_generate_messages_no
 ### Generating Messages
 
 ### Generating Services
-_generate_srv_py(nuturtle_robot
-  "/home/ricojia/coffee_bot/ros_ws/src/nu_packages/nuturtle_robot/srv/Start.srv"
-  "${MSG_I_FLAGS}"
-  ""
-  ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/nuturtle_robot
-)
 
 ### Generating Module File
 _generate_module_py(nuturtle_robot
@@ -181,8 +140,6 @@ add_custom_target(nuturtle_robot_generate_messages_py
 add_dependencies(nuturtle_robot_generate_messages nuturtle_robot_generate_messages_py)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/ricojia/coffee_bot/ros_ws/src/nu_packages/nuturtle_robot/srv/Start.srv" NAME_WE)
-add_dependencies(nuturtle_robot_generate_messages_py _nuturtle_robot_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
 add_custom_target(nuturtle_robot_genpy)

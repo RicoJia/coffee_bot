@@ -1,0 +1,8 @@
+prefix=/home/ricojia/coffee_bot/ros_ws/install
+
+Name: phidgets_api
+Description: Description of phidgets_api
+Version: 0.7.10
+Cflags: -I${prefix}/include
+Libs: -L${prefix}/lib -lphidgets_api
+Requires: libphidget21

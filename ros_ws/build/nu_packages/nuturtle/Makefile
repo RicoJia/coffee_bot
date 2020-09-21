@@ -168,21 +168,6 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
-nu_packages/nuturtle/CMakeFiles/nuturtlebot_generate_messages_cpp.dir/rule:
-	cd /home/ricojia/coffee_bot/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 nu_packages/nuturtle/CMakeFiles/nuturtlebot_generate_messages_cpp.dir/rule
-.PHONY : nu_packages/nuturtle/CMakeFiles/nuturtlebot_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-nuturtlebot_generate_messages_cpp: nu_packages/nuturtle/CMakeFiles/nuturtlebot_generate_messages_cpp.dir/rule
-
-.PHONY : nuturtlebot_generate_messages_cpp
-
-# fast build rule for target.
-nuturtlebot_generate_messages_cpp/fast:
-	cd /home/ricojia/coffee_bot/ros_ws/build && $(MAKE) -f nu_packages/nuturtle/CMakeFiles/nuturtlebot_generate_messages_cpp.dir/build.make nu_packages/nuturtle/CMakeFiles/nuturtlebot_generate_messages_cpp.dir/build
-.PHONY : nuturtlebot_generate_messages_cpp/fast
-
-# Convenience name for target.
 nu_packages/nuturtle/CMakeFiles/nuturtlebot_generate_messages_eus.dir/rule:
 	cd /home/ricojia/coffee_bot/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 nu_packages/nuturtle/CMakeFiles/nuturtlebot_generate_messages_eus.dir/rule
 .PHONY : nu_packages/nuturtle/CMakeFiles/nuturtlebot_generate_messages_eus.dir/rule
@@ -196,6 +181,21 @@ nuturtlebot_generate_messages_eus: nu_packages/nuturtle/CMakeFiles/nuturtlebot_g
 nuturtlebot_generate_messages_eus/fast:
 	cd /home/ricojia/coffee_bot/ros_ws/build && $(MAKE) -f nu_packages/nuturtle/CMakeFiles/nuturtlebot_generate_messages_eus.dir/build.make nu_packages/nuturtle/CMakeFiles/nuturtlebot_generate_messages_eus.dir/build
 .PHONY : nuturtlebot_generate_messages_eus/fast
+
+# Convenience name for target.
+nu_packages/nuturtle/CMakeFiles/nuturtlebot_generate_messages_cpp.dir/rule:
+	cd /home/ricojia/coffee_bot/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 nu_packages/nuturtle/CMakeFiles/nuturtlebot_generate_messages_cpp.dir/rule
+.PHONY : nu_packages/nuturtle/CMakeFiles/nuturtlebot_generate_messages_cpp.dir/rule
+
+# Convenience name for target.
+nuturtlebot_generate_messages_cpp: nu_packages/nuturtle/CMakeFiles/nuturtlebot_generate_messages_cpp.dir/rule
+
+.PHONY : nuturtlebot_generate_messages_cpp
+
+# fast build rule for target.
+nuturtlebot_generate_messages_cpp/fast:
+	cd /home/ricojia/coffee_bot/ros_ws/build && $(MAKE) -f nu_packages/nuturtle/CMakeFiles/nuturtlebot_generate_messages_cpp.dir/build.make nu_packages/nuturtle/CMakeFiles/nuturtlebot_generate_messages_cpp.dir/build
+.PHONY : nuturtlebot_generate_messages_cpp/fast
 
 # Convenience name for target.
 nu_packages/nuturtle/CMakeFiles/_nuturtlebot_generate_messages_check_deps_WheelCommands.dir/rule:
@@ -213,19 +213,19 @@ _nuturtlebot_generate_messages_check_deps_WheelCommands/fast:
 .PHONY : _nuturtlebot_generate_messages_check_deps_WheelCommands/fast
 
 # Convenience name for target.
-nu_packages/nuturtle/CMakeFiles/_catkin_empty_exported_target.dir/rule:
-	cd /home/ricojia/coffee_bot/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 nu_packages/nuturtle/CMakeFiles/_catkin_empty_exported_target.dir/rule
-.PHONY : nu_packages/nuturtle/CMakeFiles/_catkin_empty_exported_target.dir/rule
+nu_packages/nuturtle/CMakeFiles/nuturtlebot_gencpp.dir/rule:
+	cd /home/ricojia/coffee_bot/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 nu_packages/nuturtle/CMakeFiles/nuturtlebot_gencpp.dir/rule
+.PHONY : nu_packages/nuturtle/CMakeFiles/nuturtlebot_gencpp.dir/rule
 
 # Convenience name for target.
-_catkin_empty_exported_target: nu_packages/nuturtle/CMakeFiles/_catkin_empty_exported_target.dir/rule
+nuturtlebot_gencpp: nu_packages/nuturtle/CMakeFiles/nuturtlebot_gencpp.dir/rule
 
-.PHONY : _catkin_empty_exported_target
+.PHONY : nuturtlebot_gencpp
 
 # fast build rule for target.
-_catkin_empty_exported_target/fast:
-	cd /home/ricojia/coffee_bot/ros_ws/build && $(MAKE) -f nu_packages/nuturtle/CMakeFiles/_catkin_empty_exported_target.dir/build.make nu_packages/nuturtle/CMakeFiles/_catkin_empty_exported_target.dir/build
-.PHONY : _catkin_empty_exported_target/fast
+nuturtlebot_gencpp/fast:
+	cd /home/ricojia/coffee_bot/ros_ws/build && $(MAKE) -f nu_packages/nuturtle/CMakeFiles/nuturtlebot_gencpp.dir/build.make nu_packages/nuturtle/CMakeFiles/nuturtlebot_gencpp.dir/build
+.PHONY : nuturtlebot_gencpp/fast
 
 # Convenience name for target.
 nu_packages/nuturtle/CMakeFiles/_nuturtlebot_generate_messages_check_deps_SensorData.dir/rule:
@@ -256,21 +256,6 @@ nuturtlebot_genpy: nu_packages/nuturtle/CMakeFiles/nuturtlebot_genpy.dir/rule
 nuturtlebot_genpy/fast:
 	cd /home/ricojia/coffee_bot/ros_ws/build && $(MAKE) -f nu_packages/nuturtle/CMakeFiles/nuturtlebot_genpy.dir/build.make nu_packages/nuturtle/CMakeFiles/nuturtlebot_genpy.dir/build
 .PHONY : nuturtlebot_genpy/fast
-
-# Convenience name for target.
-nu_packages/nuturtle/CMakeFiles/nuturtlebot_gencpp.dir/rule:
-	cd /home/ricojia/coffee_bot/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 nu_packages/nuturtle/CMakeFiles/nuturtlebot_gencpp.dir/rule
-.PHONY : nu_packages/nuturtle/CMakeFiles/nuturtlebot_gencpp.dir/rule
-
-# Convenience name for target.
-nuturtlebot_gencpp: nu_packages/nuturtle/CMakeFiles/nuturtlebot_gencpp.dir/rule
-
-.PHONY : nuturtlebot_gencpp
-
-# fast build rule for target.
-nuturtlebot_gencpp/fast:
-	cd /home/ricojia/coffee_bot/ros_ws/build && $(MAKE) -f nu_packages/nuturtle/CMakeFiles/nuturtlebot_gencpp.dir/build.make nu_packages/nuturtle/CMakeFiles/nuturtlebot_gencpp.dir/build
-.PHONY : nuturtlebot_gencpp/fast
 
 # Convenience name for target.
 nu_packages/nuturtle/CMakeFiles/nuturtlebot_geneus.dir/rule:
@@ -385,14 +370,13 @@ help:
 	@echo "... depend"
 	@echo "... install/strip"
 	@echo "... list_install_components"
-	@echo "... rebuild_cache"
-	@echo "... nuturtlebot_generate_messages_cpp"
 	@echo "... nuturtlebot_generate_messages_eus"
+	@echo "... nuturtlebot_generate_messages_cpp"
 	@echo "... _nuturtlebot_generate_messages_check_deps_WheelCommands"
-	@echo "... _catkin_empty_exported_target"
+	@echo "... rebuild_cache"
+	@echo "... nuturtlebot_gencpp"
 	@echo "... _nuturtlebot_generate_messages_check_deps_SensorData"
 	@echo "... nuturtlebot_genpy"
-	@echo "... nuturtlebot_gencpp"
 	@echo "... install/local"
 	@echo "... nuturtlebot_geneus"
 	@echo "... nuturtlebot_generate_messages"

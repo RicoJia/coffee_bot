@@ -1,0 +1,8 @@
+prefix=/home/ricojia/coffee_bot/ros_ws/install
+
+Name: phidgets_high_speed_encoder
+Description: Description of phidgets_high_speed_encoder
+Version: 0.7.10
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: nodelet phidgets_api phidgets_msgs pluginlib roscpp std_msgs sensor_msgs

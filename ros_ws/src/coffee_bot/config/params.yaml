@@ -1,0 +1,93 @@
+
+########################################SLAM Parameters
+##max_landmarks_num: maximum number of landmarks
+##landmarks_stddev: standard deviation for fake landmark data noise
+##motion_stddev: ekf standard deviation for R
+##observation_stddev: standard deviation for ekf Q
+##if_visualize_filtered_landmarks: 0 for visualizing raw landmark position in /base_link, 1 for visualizing filtered landmark position in /map
+##fake_scan_threshold: maximum fake scan distance. -1 for inf.
+#max_landmarks_num: 6
+#landmarks_stddev: [0.0,0.0]
+#motion_stddev: [0.01234, 0.01234]
+#observation_stddev: [0.1, 0.1]
+#if_visualize_filtered_landmarks: 0
+#fake_scan_threshold: -1
+
+
+#######################################Rviz Parameters
+#if_visualize_filtered_landmarks: 1 for visualizing landmarks after Filtering in /map frame, 0 for raw landmark info in /base_scan frame
+#landmark_stddev: standard deviation for landmark observations: [range, bearing]
+#fake_scan_threshold: max scan distance for fake landmark observation data. -1 for infinite
+
+map_frame_id: 'odom'
+actual_robot_frame_id: 'actual_robot'
+odom_frame_id: 'odom'
+body_frame_id: 'base_link'
+
+#######################################Diff Drive Parameters
+#units: m
+#wheel_width: The width of the wheels
+#wheel_radius: The radius of the wheels
+#wheel_base: The distance between the centers wheels
+#wheel_mass: mass of the wheel
+#chassis_mass: mass of the chassis(kg)
+#chassis_length: The length of the main chassis link
+#chassis_thickness: The thickness of the plate that forms the chassis
+#encoder_ticks_per_rev: number of ticks per encoder revolution
+#max_wheel_command maximum pwm to the motor
+#wheel_axle_offset: distance between a wheel axle and the bottom of the chassis
+#laser_scanner_radius: radius of the laser scanner cylinder
+#laser_scanner_height: height of the laser scanner cylinder
+#frequency: legacy frequency value some old files depend on, which should be the same as other frequency values.
+#rotation_pub_frequency - This is the publishing frequency of the node "/rotation"
+#translation_pub_frequency - Used by the node "/translation"
+#frac_vel - fraction of the full on body twost velocity
+
+#TODO: update the rest
+wheel_width: 0.018
+wheel_radius: 0.044
+wheel_base: 0.16
+chassis_length: 0.138
+chassis_thickness: 0.140
+wheel_mass: 0.03
+chassis_mass: 1.0
+wheel_axle_offset: 0.02
+laser_scanner_radius: 0.02
+laser_scanner_height: 0.02
+
+encoder_ticks_per_rev:  4096  #8192
+max_trans_vel: 0.25   # TODO: test: set 1s and test distance it travelled
+max_rot_vel: 2.84     # 0.25
+max_motor_rot_vel: 6.35492  # max_trans_vel/wheel_radius
+max_wheel_command: 32      #? maximum PWM
+
+left_wheel_joint: 'left_wheel_axle'
+right_wheel_joint: 'right_wheel_axle'
+frequency: 10   #Tip: has to be the same as move_base planning frequency!
+
+rotation_pub_frequency: 100
+translation_pub_frequency: 100
+frac_vel: 1.0
+
+
+######################################## Waypoint Following params
+##waypoints_x: [0.0, 0.5, 1.0, 0.25, -0.5]
+##waypoints_y: [0.0, 0.0, 0.5, 1.0, 0.5]
+#waypoints_x: [0.0, 3.0]
+#waypoints_y: [0.0, 0.0]
+#k_rot:  0.3
+#k_trans:  0.8
+#
+###########tsim parameters (only for tsim packages)
+##x - The x coordinate of the lower left corner of a rectangle
+##y - The y coordinate of the lower left corner of a rectangle
+##width - The width of the rectangle
+##height - The height of the rectangle
+##trans_vel - The translational velocity of the robot
+##rot_vel - The rotational velocity of the robot
+#x: 3
+#y: 2
+#width: 4
+#height: 5
+#trans_vel: 0.22
+#rot_vel: 2.84

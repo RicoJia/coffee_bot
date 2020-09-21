@@ -1,7 +1,7 @@
 # generated from genmsg/cmake/pkg-genmsg.context.in
 
 messages_str = ""
-services_str = "/home/ricojia/coffee_bot/ros_ws/src/nu_packages/nuturtle_robot/srv/Start.srv"
+services_str = ""
 pkg_name = "nuturtle_robot"
 dependencies_str = "std_srvs"
 langs = "gencpp;geneus;genlisp;gennodejs;genpy"

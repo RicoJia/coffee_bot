@@ -1,0 +1,8 @@
+prefix=/home/ricojia/coffee_bot/ros_ws/install
+
+Name: phidgets_ik
+Description: Description of phidgets_ik
+Version: 0.7.10
+Cflags: -I${prefix}/include
+Libs: -L${prefix}/lib -lphidgets_ik
+Requires: nodelet phidgets_api phidgets_msgs pluginlib roscpp sensor_msgs std_msgs

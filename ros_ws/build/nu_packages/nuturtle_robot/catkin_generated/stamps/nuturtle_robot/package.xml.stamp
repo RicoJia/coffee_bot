@@ -57,9 +57,9 @@
   <build_depend>sensor_msgs</build_depend>
   <build_export_depend>sensor_msgs</build_export_depend>
 
-<!--  <build_depend> nuturtlebot</build_depend>-->
-  <exec_depend> nuturtlebot </exec_depend>
-  <build_export_depend> nuturtlebot </build_export_depend>
+  <depend> nuturtlebot</depend>
+<!--  <exec_depend> nuturtlebot </exec_depend>-->
+<!--  <build_export_depend> nuturtlebot </build_export_depend>-->
 
   <build_depend> rigid2d </build_depend>
 <!--  <exec_depend> rigid2d </exec_depend>-->

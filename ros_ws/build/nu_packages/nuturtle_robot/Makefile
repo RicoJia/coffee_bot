@@ -56,27 +56,16 @@ CMAKE_BINARY_DIR = /home/ricojia/coffee_bot/ros_ws/build
 #=============================================================================
 # Targets provided globally by CMake.
 
-# Special rule for the target list_install_components
-list_install_components:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
-.PHONY : list_install_components
+# Special rule for the target edit_cache
+edit_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
+	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+.PHONY : edit_cache
 
-# Special rule for the target list_install_components
-list_install_components/fast: list_install_components
+# Special rule for the target edit_cache
+edit_cache/fast: edit_cache
 
-.PHONY : list_install_components/fast
-
-# Special rule for the target install
-install: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
-	/usr/bin/cmake -P cmake_install.cmake
-.PHONY : install
-
-# Special rule for the target install
-install/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
-	/usr/bin/cmake -P cmake_install.cmake
-.PHONY : install/fast
+.PHONY : edit_cache/fast
 
 # Special rule for the target install/local
 install/local: preinstall
@@ -89,6 +78,40 @@ install/local/fast: preinstall/fast
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
 	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
 .PHONY : install/local/fast
+
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
+.PHONY : list_install_components
+
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
+
+.PHONY : list_install_components/fast
+
+# Special rule for the target install/strip
+install/strip: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip
+
+# Special rule for the target install/strip
+install/strip/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip/fast
+
+# Special rule for the target install
+install: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/usr/bin/cmake -P cmake_install.cmake
+.PHONY : install
+
+# Special rule for the target install
+install/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/usr/bin/cmake -P cmake_install.cmake
+.PHONY : install/fast
 
 # Special rule for the target test
 test:
@@ -111,29 +134,6 @@ rebuild_cache:
 rebuild_cache/fast: rebuild_cache
 
 .PHONY : rebuild_cache/fast
-
-# Special rule for the target install/strip
-install/strip: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
-.PHONY : install/strip
-
-# Special rule for the target install/strip
-install/strip/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
-.PHONY : install/strip/fast
-
-# Special rule for the target edit_cache
-edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
-.PHONY : edit_cache
-
-# Special rule for the target edit_cache
-edit_cache/fast: edit_cache
-
-.PHONY : edit_cache/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -168,186 +168,6 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
-nu_packages/nuturtle_robot/CMakeFiles/clean_test_results_nuturtle_robot.dir/rule:
-	cd /home/ricojia/coffee_bot/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 nu_packages/nuturtle_robot/CMakeFiles/clean_test_results_nuturtle_robot.dir/rule
-.PHONY : nu_packages/nuturtle_robot/CMakeFiles/clean_test_results_nuturtle_robot.dir/rule
-
-# Convenience name for target.
-clean_test_results_nuturtle_robot: nu_packages/nuturtle_robot/CMakeFiles/clean_test_results_nuturtle_robot.dir/rule
-
-.PHONY : clean_test_results_nuturtle_robot
-
-# fast build rule for target.
-clean_test_results_nuturtle_robot/fast:
-	cd /home/ricojia/coffee_bot/ros_ws/build && $(MAKE) -f nu_packages/nuturtle_robot/CMakeFiles/clean_test_results_nuturtle_robot.dir/build.make nu_packages/nuturtle_robot/CMakeFiles/clean_test_results_nuturtle_robot.dir/build
-.PHONY : clean_test_results_nuturtle_robot/fast
-
-# Convenience name for target.
-nu_packages/nuturtle_robot/CMakeFiles/_run_tests_nuturtle_robot_rostest.dir/rule:
-	cd /home/ricojia/coffee_bot/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 nu_packages/nuturtle_robot/CMakeFiles/_run_tests_nuturtle_robot_rostest.dir/rule
-.PHONY : nu_packages/nuturtle_robot/CMakeFiles/_run_tests_nuturtle_robot_rostest.dir/rule
-
-# Convenience name for target.
-_run_tests_nuturtle_robot_rostest: nu_packages/nuturtle_robot/CMakeFiles/_run_tests_nuturtle_robot_rostest.dir/rule
-
-.PHONY : _run_tests_nuturtle_robot_rostest
-
-# fast build rule for target.
-_run_tests_nuturtle_robot_rostest/fast:
-	cd /home/ricojia/coffee_bot/ros_ws/build && $(MAKE) -f nu_packages/nuturtle_robot/CMakeFiles/_run_tests_nuturtle_robot_rostest.dir/build.make nu_packages/nuturtle_robot/CMakeFiles/_run_tests_nuturtle_robot_rostest.dir/build
-.PHONY : _run_tests_nuturtle_robot_rostest/fast
-
-# Convenience name for target.
-nu_packages/nuturtle_robot/CMakeFiles/run_tests_nuturtle_robot_rostest.dir/rule:
-	cd /home/ricojia/coffee_bot/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 nu_packages/nuturtle_robot/CMakeFiles/run_tests_nuturtle_robot_rostest.dir/rule
-.PHONY : nu_packages/nuturtle_robot/CMakeFiles/run_tests_nuturtle_robot_rostest.dir/rule
-
-# Convenience name for target.
-run_tests_nuturtle_robot_rostest: nu_packages/nuturtle_robot/CMakeFiles/run_tests_nuturtle_robot_rostest.dir/rule
-
-.PHONY : run_tests_nuturtle_robot_rostest
-
-# fast build rule for target.
-run_tests_nuturtle_robot_rostest/fast:
-	cd /home/ricojia/coffee_bot/ros_ws/build && $(MAKE) -f nu_packages/nuturtle_robot/CMakeFiles/run_tests_nuturtle_robot_rostest.dir/build.make nu_packages/nuturtle_robot/CMakeFiles/run_tests_nuturtle_robot_rostest.dir/build
-.PHONY : run_tests_nuturtle_robot_rostest/fast
-
-# Convenience name for target.
-nu_packages/nuturtle_robot/CMakeFiles/_run_tests_nuturtle_robot.dir/rule:
-	cd /home/ricojia/coffee_bot/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 nu_packages/nuturtle_robot/CMakeFiles/_run_tests_nuturtle_robot.dir/rule
-.PHONY : nu_packages/nuturtle_robot/CMakeFiles/_run_tests_nuturtle_robot.dir/rule
-
-# Convenience name for target.
-_run_tests_nuturtle_robot: nu_packages/nuturtle_robot/CMakeFiles/_run_tests_nuturtle_robot.dir/rule
-
-.PHONY : _run_tests_nuturtle_robot
-
-# fast build rule for target.
-_run_tests_nuturtle_robot/fast:
-	cd /home/ricojia/coffee_bot/ros_ws/build && $(MAKE) -f nu_packages/nuturtle_robot/CMakeFiles/_run_tests_nuturtle_robot.dir/build.make nu_packages/nuturtle_robot/CMakeFiles/_run_tests_nuturtle_robot.dir/build
-.PHONY : _run_tests_nuturtle_robot/fast
-
-# Convenience name for target.
-nu_packages/nuturtle_robot/CMakeFiles/nuturtle_robot_gencpp.dir/rule:
-	cd /home/ricojia/coffee_bot/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 nu_packages/nuturtle_robot/CMakeFiles/nuturtle_robot_gencpp.dir/rule
-.PHONY : nu_packages/nuturtle_robot/CMakeFiles/nuturtle_robot_gencpp.dir/rule
-
-# Convenience name for target.
-nuturtle_robot_gencpp: nu_packages/nuturtle_robot/CMakeFiles/nuturtle_robot_gencpp.dir/rule
-
-.PHONY : nuturtle_robot_gencpp
-
-# fast build rule for target.
-nuturtle_robot_gencpp/fast:
-	cd /home/ricojia/coffee_bot/ros_ws/build && $(MAKE) -f nu_packages/nuturtle_robot/CMakeFiles/nuturtle_robot_gencpp.dir/build.make nu_packages/nuturtle_robot/CMakeFiles/nuturtle_robot_gencpp.dir/build
-.PHONY : nuturtle_robot_gencpp/fast
-
-# Convenience name for target.
-nu_packages/nuturtle_robot/CMakeFiles/_nuturtle_robot_generate_messages_check_deps_Start.dir/rule:
-	cd /home/ricojia/coffee_bot/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 nu_packages/nuturtle_robot/CMakeFiles/_nuturtle_robot_generate_messages_check_deps_Start.dir/rule
-.PHONY : nu_packages/nuturtle_robot/CMakeFiles/_nuturtle_robot_generate_messages_check_deps_Start.dir/rule
-
-# Convenience name for target.
-_nuturtle_robot_generate_messages_check_deps_Start: nu_packages/nuturtle_robot/CMakeFiles/_nuturtle_robot_generate_messages_check_deps_Start.dir/rule
-
-.PHONY : _nuturtle_robot_generate_messages_check_deps_Start
-
-# fast build rule for target.
-_nuturtle_robot_generate_messages_check_deps_Start/fast:
-	cd /home/ricojia/coffee_bot/ros_ws/build && $(MAKE) -f nu_packages/nuturtle_robot/CMakeFiles/_nuturtle_robot_generate_messages_check_deps_Start.dir/build.make nu_packages/nuturtle_robot/CMakeFiles/_nuturtle_robot_generate_messages_check_deps_Start.dir/build
-.PHONY : _nuturtle_robot_generate_messages_check_deps_Start/fast
-
-# Convenience name for target.
-nu_packages/nuturtle_robot/CMakeFiles/_run_tests_nuturtle_robot_rostest_test_turtle_interface.test.dir/rule:
-	cd /home/ricojia/coffee_bot/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 nu_packages/nuturtle_robot/CMakeFiles/_run_tests_nuturtle_robot_rostest_test_turtle_interface.test.dir/rule
-.PHONY : nu_packages/nuturtle_robot/CMakeFiles/_run_tests_nuturtle_robot_rostest_test_turtle_interface.test.dir/rule
-
-# Convenience name for target.
-_run_tests_nuturtle_robot_rostest_test_turtle_interface.test: nu_packages/nuturtle_robot/CMakeFiles/_run_tests_nuturtle_robot_rostest_test_turtle_interface.test.dir/rule
-
-.PHONY : _run_tests_nuturtle_robot_rostest_test_turtle_interface.test
-
-# fast build rule for target.
-_run_tests_nuturtle_robot_rostest_test_turtle_interface.test/fast:
-	cd /home/ricojia/coffee_bot/ros_ws/build && $(MAKE) -f nu_packages/nuturtle_robot/CMakeFiles/_run_tests_nuturtle_robot_rostest_test_turtle_interface.test.dir/build.make nu_packages/nuturtle_robot/CMakeFiles/_run_tests_nuturtle_robot_rostest_test_turtle_interface.test.dir/build
-.PHONY : _run_tests_nuturtle_robot_rostest_test_turtle_interface.test/fast
-
-# Convenience name for target.
-nu_packages/nuturtle_robot/CMakeFiles/nuturtle_robot_generate_messages_eus.dir/rule:
-	cd /home/ricojia/coffee_bot/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 nu_packages/nuturtle_robot/CMakeFiles/nuturtle_robot_generate_messages_eus.dir/rule
-.PHONY : nu_packages/nuturtle_robot/CMakeFiles/nuturtle_robot_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-nuturtle_robot_generate_messages_eus: nu_packages/nuturtle_robot/CMakeFiles/nuturtle_robot_generate_messages_eus.dir/rule
-
-.PHONY : nuturtle_robot_generate_messages_eus
-
-# fast build rule for target.
-nuturtle_robot_generate_messages_eus/fast:
-	cd /home/ricojia/coffee_bot/ros_ws/build && $(MAKE) -f nu_packages/nuturtle_robot/CMakeFiles/nuturtle_robot_generate_messages_eus.dir/build.make nu_packages/nuturtle_robot/CMakeFiles/nuturtle_robot_generate_messages_eus.dir/build
-.PHONY : nuturtle_robot_generate_messages_eus/fast
-
-# Convenience name for target.
-nu_packages/nuturtle_robot/CMakeFiles/nuturtle_robot_generate_messages_cpp.dir/rule:
-	cd /home/ricojia/coffee_bot/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 nu_packages/nuturtle_robot/CMakeFiles/nuturtle_robot_generate_messages_cpp.dir/rule
-.PHONY : nu_packages/nuturtle_robot/CMakeFiles/nuturtle_robot_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-nuturtle_robot_generate_messages_cpp: nu_packages/nuturtle_robot/CMakeFiles/nuturtle_robot_generate_messages_cpp.dir/rule
-
-.PHONY : nuturtle_robot_generate_messages_cpp
-
-# fast build rule for target.
-nuturtle_robot_generate_messages_cpp/fast:
-	cd /home/ricojia/coffee_bot/ros_ws/build && $(MAKE) -f nu_packages/nuturtle_robot/CMakeFiles/nuturtle_robot_generate_messages_cpp.dir/build.make nu_packages/nuturtle_robot/CMakeFiles/nuturtle_robot_generate_messages_cpp.dir/build
-.PHONY : nuturtle_robot_generate_messages_cpp/fast
-
-# Convenience name for target.
-nu_packages/nuturtle_robot/CMakeFiles/turtle_interface_test.dir/rule:
-	cd /home/ricojia/coffee_bot/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 nu_packages/nuturtle_robot/CMakeFiles/turtle_interface_test.dir/rule
-.PHONY : nu_packages/nuturtle_robot/CMakeFiles/turtle_interface_test.dir/rule
-
-# Convenience name for target.
-turtle_interface_test: nu_packages/nuturtle_robot/CMakeFiles/turtle_interface_test.dir/rule
-
-.PHONY : turtle_interface_test
-
-# fast build rule for target.
-turtle_interface_test/fast:
-	cd /home/ricojia/coffee_bot/ros_ws/build && $(MAKE) -f nu_packages/nuturtle_robot/CMakeFiles/turtle_interface_test.dir/build.make nu_packages/nuturtle_robot/CMakeFiles/turtle_interface_test.dir/build
-.PHONY : turtle_interface_test/fast
-
-# Convenience name for target.
-nu_packages/nuturtle_robot/CMakeFiles/nuturtle_robot_generate_messages_lisp.dir/rule:
-	cd /home/ricojia/coffee_bot/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 nu_packages/nuturtle_robot/CMakeFiles/nuturtle_robot_generate_messages_lisp.dir/rule
-.PHONY : nu_packages/nuturtle_robot/CMakeFiles/nuturtle_robot_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-nuturtle_robot_generate_messages_lisp: nu_packages/nuturtle_robot/CMakeFiles/nuturtle_robot_generate_messages_lisp.dir/rule
-
-.PHONY : nuturtle_robot_generate_messages_lisp
-
-# fast build rule for target.
-nuturtle_robot_generate_messages_lisp/fast:
-	cd /home/ricojia/coffee_bot/ros_ws/build && $(MAKE) -f nu_packages/nuturtle_robot/CMakeFiles/nuturtle_robot_generate_messages_lisp.dir/build.make nu_packages/nuturtle_robot/CMakeFiles/nuturtle_robot_generate_messages_lisp.dir/build
-.PHONY : nuturtle_robot_generate_messages_lisp/fast
-
-# Convenience name for target.
-nu_packages/nuturtle_robot/CMakeFiles/nuturtle_robot_genlisp.dir/rule:
-	cd /home/ricojia/coffee_bot/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 nu_packages/nuturtle_robot/CMakeFiles/nuturtle_robot_genlisp.dir/rule
-.PHONY : nu_packages/nuturtle_robot/CMakeFiles/nuturtle_robot_genlisp.dir/rule
-
-# Convenience name for target.
-nuturtle_robot_genlisp: nu_packages/nuturtle_robot/CMakeFiles/nuturtle_robot_genlisp.dir/rule
-
-.PHONY : nuturtle_robot_genlisp
-
-# fast build rule for target.
-nuturtle_robot_genlisp/fast:
-	cd /home/ricojia/coffee_bot/ros_ws/build && $(MAKE) -f nu_packages/nuturtle_robot/CMakeFiles/nuturtle_robot_genlisp.dir/build.make nu_packages/nuturtle_robot/CMakeFiles/nuturtle_robot_genlisp.dir/build
-.PHONY : nuturtle_robot_genlisp/fast
-
-# Convenience name for target.
 nu_packages/nuturtle_robot/CMakeFiles/turtle_interface.dir/rule:
 	cd /home/ricojia/coffee_bot/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 nu_packages/nuturtle_robot/CMakeFiles/turtle_interface.dir/rule
 .PHONY : nu_packages/nuturtle_robot/CMakeFiles/turtle_interface.dir/rule
@@ -361,81 +181,6 @@ turtle_interface: nu_packages/nuturtle_robot/CMakeFiles/turtle_interface.dir/rul
 turtle_interface/fast:
 	cd /home/ricojia/coffee_bot/ros_ws/build && $(MAKE) -f nu_packages/nuturtle_robot/CMakeFiles/turtle_interface.dir/build.make nu_packages/nuturtle_robot/CMakeFiles/turtle_interface.dir/build
 .PHONY : turtle_interface/fast
-
-# Convenience name for target.
-nu_packages/nuturtle_robot/CMakeFiles/nuturtle_robot_generate_messages_nodejs.dir/rule:
-	cd /home/ricojia/coffee_bot/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 nu_packages/nuturtle_robot/CMakeFiles/nuturtle_robot_generate_messages_nodejs.dir/rule
-.PHONY : nu_packages/nuturtle_robot/CMakeFiles/nuturtle_robot_generate_messages_nodejs.dir/rule
-
-# Convenience name for target.
-nuturtle_robot_generate_messages_nodejs: nu_packages/nuturtle_robot/CMakeFiles/nuturtle_robot_generate_messages_nodejs.dir/rule
-
-.PHONY : nuturtle_robot_generate_messages_nodejs
-
-# fast build rule for target.
-nuturtle_robot_generate_messages_nodejs/fast:
-	cd /home/ricojia/coffee_bot/ros_ws/build && $(MAKE) -f nu_packages/nuturtle_robot/CMakeFiles/nuturtle_robot_generate_messages_nodejs.dir/build.make nu_packages/nuturtle_robot/CMakeFiles/nuturtle_robot_generate_messages_nodejs.dir/build
-.PHONY : nuturtle_robot_generate_messages_nodejs/fast
-
-# Convenience name for target.
-nu_packages/nuturtle_robot/CMakeFiles/nuturtle_robot_geneus.dir/rule:
-	cd /home/ricojia/coffee_bot/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 nu_packages/nuturtle_robot/CMakeFiles/nuturtle_robot_geneus.dir/rule
-.PHONY : nu_packages/nuturtle_robot/CMakeFiles/nuturtle_robot_geneus.dir/rule
-
-# Convenience name for target.
-nuturtle_robot_geneus: nu_packages/nuturtle_robot/CMakeFiles/nuturtle_robot_geneus.dir/rule
-
-.PHONY : nuturtle_robot_geneus
-
-# fast build rule for target.
-nuturtle_robot_geneus/fast:
-	cd /home/ricojia/coffee_bot/ros_ws/build && $(MAKE) -f nu_packages/nuturtle_robot/CMakeFiles/nuturtle_robot_geneus.dir/build.make nu_packages/nuturtle_robot/CMakeFiles/nuturtle_robot_geneus.dir/build
-.PHONY : nuturtle_robot_geneus/fast
-
-# Convenience name for target.
-nu_packages/nuturtle_robot/CMakeFiles/real_waypoint.dir/rule:
-	cd /home/ricojia/coffee_bot/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 nu_packages/nuturtle_robot/CMakeFiles/real_waypoint.dir/rule
-.PHONY : nu_packages/nuturtle_robot/CMakeFiles/real_waypoint.dir/rule
-
-# Convenience name for target.
-real_waypoint: nu_packages/nuturtle_robot/CMakeFiles/real_waypoint.dir/rule
-
-.PHONY : real_waypoint
-
-# fast build rule for target.
-real_waypoint/fast:
-	cd /home/ricojia/coffee_bot/ros_ws/build && $(MAKE) -f nu_packages/nuturtle_robot/CMakeFiles/real_waypoint.dir/build.make nu_packages/nuturtle_robot/CMakeFiles/real_waypoint.dir/build
-.PHONY : real_waypoint/fast
-
-# Convenience name for target.
-nu_packages/nuturtle_robot/CMakeFiles/run_tests_nuturtle_robot.dir/rule:
-	cd /home/ricojia/coffee_bot/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 nu_packages/nuturtle_robot/CMakeFiles/run_tests_nuturtle_robot.dir/rule
-.PHONY : nu_packages/nuturtle_robot/CMakeFiles/run_tests_nuturtle_robot.dir/rule
-
-# Convenience name for target.
-run_tests_nuturtle_robot: nu_packages/nuturtle_robot/CMakeFiles/run_tests_nuturtle_robot.dir/rule
-
-.PHONY : run_tests_nuturtle_robot
-
-# fast build rule for target.
-run_tests_nuturtle_robot/fast:
-	cd /home/ricojia/coffee_bot/ros_ws/build && $(MAKE) -f nu_packages/nuturtle_robot/CMakeFiles/run_tests_nuturtle_robot.dir/build.make nu_packages/nuturtle_robot/CMakeFiles/run_tests_nuturtle_robot.dir/build
-.PHONY : run_tests_nuturtle_robot/fast
-
-# Convenience name for target.
-nu_packages/nuturtle_robot/CMakeFiles/nuturtle_robot_gennodejs.dir/rule:
-	cd /home/ricojia/coffee_bot/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 nu_packages/nuturtle_robot/CMakeFiles/nuturtle_robot_gennodejs.dir/rule
-.PHONY : nu_packages/nuturtle_robot/CMakeFiles/nuturtle_robot_gennodejs.dir/rule
-
-# Convenience name for target.
-nuturtle_robot_gennodejs: nu_packages/nuturtle_robot/CMakeFiles/nuturtle_robot_gennodejs.dir/rule
-
-.PHONY : nuturtle_robot_gennodejs
-
-# fast build rule for target.
-nuturtle_robot_gennodejs/fast:
-	cd /home/ricojia/coffee_bot/ros_ws/build && $(MAKE) -f nu_packages/nuturtle_robot/CMakeFiles/nuturtle_robot_gennodejs.dir/build.make nu_packages/nuturtle_robot/CMakeFiles/nuturtle_robot_gennodejs.dir/build
-.PHONY : nuturtle_robot_gennodejs/fast
 
 # Convenience name for target.
 nu_packages/nuturtle_robot/CMakeFiles/nuturtle_robot_generate_messages.dir/rule:
@@ -453,34 +198,64 @@ nuturtle_robot_generate_messages/fast:
 .PHONY : nuturtle_robot_generate_messages/fast
 
 # Convenience name for target.
-nu_packages/nuturtle_robot/CMakeFiles/translation.dir/rule:
-	cd /home/ricojia/coffee_bot/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 nu_packages/nuturtle_robot/CMakeFiles/translation.dir/rule
-.PHONY : nu_packages/nuturtle_robot/CMakeFiles/translation.dir/rule
+nu_packages/nuturtle_robot/CMakeFiles/nuturtle_robot_generate_messages_lisp.dir/rule:
+	cd /home/ricojia/coffee_bot/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 nu_packages/nuturtle_robot/CMakeFiles/nuturtle_robot_generate_messages_lisp.dir/rule
+.PHONY : nu_packages/nuturtle_robot/CMakeFiles/nuturtle_robot_generate_messages_lisp.dir/rule
 
 # Convenience name for target.
-translation: nu_packages/nuturtle_robot/CMakeFiles/translation.dir/rule
+nuturtle_robot_generate_messages_lisp: nu_packages/nuturtle_robot/CMakeFiles/nuturtle_robot_generate_messages_lisp.dir/rule
 
-.PHONY : translation
+.PHONY : nuturtle_robot_generate_messages_lisp
 
 # fast build rule for target.
-translation/fast:
-	cd /home/ricojia/coffee_bot/ros_ws/build && $(MAKE) -f nu_packages/nuturtle_robot/CMakeFiles/translation.dir/build.make nu_packages/nuturtle_robot/CMakeFiles/translation.dir/build
-.PHONY : translation/fast
+nuturtle_robot_generate_messages_lisp/fast:
+	cd /home/ricojia/coffee_bot/ros_ws/build && $(MAKE) -f nu_packages/nuturtle_robot/CMakeFiles/nuturtle_robot_generate_messages_lisp.dir/build.make nu_packages/nuturtle_robot/CMakeFiles/nuturtle_robot_generate_messages_lisp.dir/build
+.PHONY : nuturtle_robot_generate_messages_lisp/fast
 
 # Convenience name for target.
-nu_packages/nuturtle_robot/CMakeFiles/nuturtle_robot_generate_messages_py.dir/rule:
-	cd /home/ricojia/coffee_bot/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 nu_packages/nuturtle_robot/CMakeFiles/nuturtle_robot_generate_messages_py.dir/rule
-.PHONY : nu_packages/nuturtle_robot/CMakeFiles/nuturtle_robot_generate_messages_py.dir/rule
+nu_packages/nuturtle_robot/CMakeFiles/visualization_msgs_generate_messages_nodejs.dir/rule:
+	cd /home/ricojia/coffee_bot/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 nu_packages/nuturtle_robot/CMakeFiles/visualization_msgs_generate_messages_nodejs.dir/rule
+.PHONY : nu_packages/nuturtle_robot/CMakeFiles/visualization_msgs_generate_messages_nodejs.dir/rule
 
 # Convenience name for target.
-nuturtle_robot_generate_messages_py: nu_packages/nuturtle_robot/CMakeFiles/nuturtle_robot_generate_messages_py.dir/rule
+visualization_msgs_generate_messages_nodejs: nu_packages/nuturtle_robot/CMakeFiles/visualization_msgs_generate_messages_nodejs.dir/rule
 
-.PHONY : nuturtle_robot_generate_messages_py
+.PHONY : visualization_msgs_generate_messages_nodejs
 
 # fast build rule for target.
-nuturtle_robot_generate_messages_py/fast:
-	cd /home/ricojia/coffee_bot/ros_ws/build && $(MAKE) -f nu_packages/nuturtle_robot/CMakeFiles/nuturtle_robot_generate_messages_py.dir/build.make nu_packages/nuturtle_robot/CMakeFiles/nuturtle_robot_generate_messages_py.dir/build
-.PHONY : nuturtle_robot_generate_messages_py/fast
+visualization_msgs_generate_messages_nodejs/fast:
+	cd /home/ricojia/coffee_bot/ros_ws/build && $(MAKE) -f nu_packages/nuturtle_robot/CMakeFiles/visualization_msgs_generate_messages_nodejs.dir/build.make nu_packages/nuturtle_robot/CMakeFiles/visualization_msgs_generate_messages_nodejs.dir/build
+.PHONY : visualization_msgs_generate_messages_nodejs/fast
+
+# Convenience name for target.
+nu_packages/nuturtle_robot/CMakeFiles/visualization_msgs_generate_messages_py.dir/rule:
+	cd /home/ricojia/coffee_bot/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 nu_packages/nuturtle_robot/CMakeFiles/visualization_msgs_generate_messages_py.dir/rule
+.PHONY : nu_packages/nuturtle_robot/CMakeFiles/visualization_msgs_generate_messages_py.dir/rule
+
+# Convenience name for target.
+visualization_msgs_generate_messages_py: nu_packages/nuturtle_robot/CMakeFiles/visualization_msgs_generate_messages_py.dir/rule
+
+.PHONY : visualization_msgs_generate_messages_py
+
+# fast build rule for target.
+visualization_msgs_generate_messages_py/fast:
+	cd /home/ricojia/coffee_bot/ros_ws/build && $(MAKE) -f nu_packages/nuturtle_robot/CMakeFiles/visualization_msgs_generate_messages_py.dir/build.make nu_packages/nuturtle_robot/CMakeFiles/visualization_msgs_generate_messages_py.dir/build
+.PHONY : visualization_msgs_generate_messages_py/fast
+
+# Convenience name for target.
+nu_packages/nuturtle_robot/CMakeFiles/visualization_msgs_generate_messages_lisp.dir/rule:
+	cd /home/ricojia/coffee_bot/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 nu_packages/nuturtle_robot/CMakeFiles/visualization_msgs_generate_messages_lisp.dir/rule
+.PHONY : nu_packages/nuturtle_robot/CMakeFiles/visualization_msgs_generate_messages_lisp.dir/rule
+
+# Convenience name for target.
+visualization_msgs_generate_messages_lisp: nu_packages/nuturtle_robot/CMakeFiles/visualization_msgs_generate_messages_lisp.dir/rule
+
+.PHONY : visualization_msgs_generate_messages_lisp
+
+# fast build rule for target.
+visualization_msgs_generate_messages_lisp/fast:
+	cd /home/ricojia/coffee_bot/ros_ws/build && $(MAKE) -f nu_packages/nuturtle_robot/CMakeFiles/visualization_msgs_generate_messages_lisp.dir/build.make nu_packages/nuturtle_robot/CMakeFiles/visualization_msgs_generate_messages_lisp.dir/build
+.PHONY : visualization_msgs_generate_messages_lisp/fast
 
 # Convenience name for target.
 nu_packages/nuturtle_robot/CMakeFiles/nuturtle_robot_genpy.dir/rule:
@@ -498,115 +273,154 @@ nuturtle_robot_genpy/fast:
 .PHONY : nuturtle_robot_genpy/fast
 
 # Convenience name for target.
-nu_packages/nuturtle_robot/CMakeFiles/run_tests_nuturtle_robot_rostest_test_turtle_interface.test.dir/rule:
-	cd /home/ricojia/coffee_bot/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 nu_packages/nuturtle_robot/CMakeFiles/run_tests_nuturtle_robot_rostest_test_turtle_interface.test.dir/rule
-.PHONY : nu_packages/nuturtle_robot/CMakeFiles/run_tests_nuturtle_robot_rostest_test_turtle_interface.test.dir/rule
+nu_packages/nuturtle_robot/CMakeFiles/visualization_msgs_generate_messages_cpp.dir/rule:
+	cd /home/ricojia/coffee_bot/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 nu_packages/nuturtle_robot/CMakeFiles/visualization_msgs_generate_messages_cpp.dir/rule
+.PHONY : nu_packages/nuturtle_robot/CMakeFiles/visualization_msgs_generate_messages_cpp.dir/rule
 
 # Convenience name for target.
-run_tests_nuturtle_robot_rostest_test_turtle_interface.test: nu_packages/nuturtle_robot/CMakeFiles/run_tests_nuturtle_robot_rostest_test_turtle_interface.test.dir/rule
+visualization_msgs_generate_messages_cpp: nu_packages/nuturtle_robot/CMakeFiles/visualization_msgs_generate_messages_cpp.dir/rule
 
-.PHONY : run_tests_nuturtle_robot_rostest_test_turtle_interface.test
+.PHONY : visualization_msgs_generate_messages_cpp
 
 # fast build rule for target.
-run_tests_nuturtle_robot_rostest_test_turtle_interface.test/fast:
-	cd /home/ricojia/coffee_bot/ros_ws/build && $(MAKE) -f nu_packages/nuturtle_robot/CMakeFiles/run_tests_nuturtle_robot_rostest_test_turtle_interface.test.dir/build.make nu_packages/nuturtle_robot/CMakeFiles/run_tests_nuturtle_robot_rostest_test_turtle_interface.test.dir/build
-.PHONY : run_tests_nuturtle_robot_rostest_test_turtle_interface.test/fast
+visualization_msgs_generate_messages_cpp/fast:
+	cd /home/ricojia/coffee_bot/ros_ws/build && $(MAKE) -f nu_packages/nuturtle_robot/CMakeFiles/visualization_msgs_generate_messages_cpp.dir/build.make nu_packages/nuturtle_robot/CMakeFiles/visualization_msgs_generate_messages_cpp.dir/build
+.PHONY : visualization_msgs_generate_messages_cpp/fast
 
 # Convenience name for target.
-nu_packages/nuturtle_robot/CMakeFiles/rotation.dir/rule:
-	cd /home/ricojia/coffee_bot/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 nu_packages/nuturtle_robot/CMakeFiles/rotation.dir/rule
-.PHONY : nu_packages/nuturtle_robot/CMakeFiles/rotation.dir/rule
+nu_packages/nuturtle_robot/CMakeFiles/visualization_msgs_generate_messages_eus.dir/rule:
+	cd /home/ricojia/coffee_bot/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 nu_packages/nuturtle_robot/CMakeFiles/visualization_msgs_generate_messages_eus.dir/rule
+.PHONY : nu_packages/nuturtle_robot/CMakeFiles/visualization_msgs_generate_messages_eus.dir/rule
 
 # Convenience name for target.
-rotation: nu_packages/nuturtle_robot/CMakeFiles/rotation.dir/rule
+visualization_msgs_generate_messages_eus: nu_packages/nuturtle_robot/CMakeFiles/visualization_msgs_generate_messages_eus.dir/rule
 
-.PHONY : rotation
+.PHONY : visualization_msgs_generate_messages_eus
 
 # fast build rule for target.
-rotation/fast:
-	cd /home/ricojia/coffee_bot/ros_ws/build && $(MAKE) -f nu_packages/nuturtle_robot/CMakeFiles/rotation.dir/build.make nu_packages/nuturtle_robot/CMakeFiles/rotation.dir/build
-.PHONY : rotation/fast
+visualization_msgs_generate_messages_eus/fast:
+	cd /home/ricojia/coffee_bot/ros_ws/build && $(MAKE) -f nu_packages/nuturtle_robot/CMakeFiles/visualization_msgs_generate_messages_eus.dir/build.make nu_packages/nuturtle_robot/CMakeFiles/visualization_msgs_generate_messages_eus.dir/build
+.PHONY : visualization_msgs_generate_messages_eus/fast
 
-src/real_waypoint.o: src/real_waypoint.cpp.o
+# Convenience name for target.
+nu_packages/nuturtle_robot/CMakeFiles/nuturtle_robot_genlisp.dir/rule:
+	cd /home/ricojia/coffee_bot/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 nu_packages/nuturtle_robot/CMakeFiles/nuturtle_robot_genlisp.dir/rule
+.PHONY : nu_packages/nuturtle_robot/CMakeFiles/nuturtle_robot_genlisp.dir/rule
 
-.PHONY : src/real_waypoint.o
+# Convenience name for target.
+nuturtle_robot_genlisp: nu_packages/nuturtle_robot/CMakeFiles/nuturtle_robot_genlisp.dir/rule
 
-# target to build an object file
-src/real_waypoint.cpp.o:
-	cd /home/ricojia/coffee_bot/ros_ws/build && $(MAKE) -f nu_packages/nuturtle_robot/CMakeFiles/real_waypoint.dir/build.make nu_packages/nuturtle_robot/CMakeFiles/real_waypoint.dir/src/real_waypoint.cpp.o
-.PHONY : src/real_waypoint.cpp.o
+.PHONY : nuturtle_robot_genlisp
 
-src/real_waypoint.i: src/real_waypoint.cpp.i
+# fast build rule for target.
+nuturtle_robot_genlisp/fast:
+	cd /home/ricojia/coffee_bot/ros_ws/build && $(MAKE) -f nu_packages/nuturtle_robot/CMakeFiles/nuturtle_robot_genlisp.dir/build.make nu_packages/nuturtle_robot/CMakeFiles/nuturtle_robot_genlisp.dir/build
+.PHONY : nuturtle_robot_genlisp/fast
 
-.PHONY : src/real_waypoint.i
+# Convenience name for target.
+nu_packages/nuturtle_robot/CMakeFiles/nuturtle_robot_gencpp.dir/rule:
+	cd /home/ricojia/coffee_bot/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 nu_packages/nuturtle_robot/CMakeFiles/nuturtle_robot_gencpp.dir/rule
+.PHONY : nu_packages/nuturtle_robot/CMakeFiles/nuturtle_robot_gencpp.dir/rule
 
-# target to preprocess a source file
-src/real_waypoint.cpp.i:
-	cd /home/ricojia/coffee_bot/ros_ws/build && $(MAKE) -f nu_packages/nuturtle_robot/CMakeFiles/real_waypoint.dir/build.make nu_packages/nuturtle_robot/CMakeFiles/real_waypoint.dir/src/real_waypoint.cpp.i
-.PHONY : src/real_waypoint.cpp.i
+# Convenience name for target.
+nuturtle_robot_gencpp: nu_packages/nuturtle_robot/CMakeFiles/nuturtle_robot_gencpp.dir/rule
 
-src/real_waypoint.s: src/real_waypoint.cpp.s
+.PHONY : nuturtle_robot_gencpp
 
-.PHONY : src/real_waypoint.s
+# fast build rule for target.
+nuturtle_robot_gencpp/fast:
+	cd /home/ricojia/coffee_bot/ros_ws/build && $(MAKE) -f nu_packages/nuturtle_robot/CMakeFiles/nuturtle_robot_gencpp.dir/build.make nu_packages/nuturtle_robot/CMakeFiles/nuturtle_robot_gencpp.dir/build
+.PHONY : nuturtle_robot_gencpp/fast
 
-# target to generate assembly for a file
-src/real_waypoint.cpp.s:
-	cd /home/ricojia/coffee_bot/ros_ws/build && $(MAKE) -f nu_packages/nuturtle_robot/CMakeFiles/real_waypoint.dir/build.make nu_packages/nuturtle_robot/CMakeFiles/real_waypoint.dir/src/real_waypoint.cpp.s
-.PHONY : src/real_waypoint.cpp.s
+# Convenience name for target.
+nu_packages/nuturtle_robot/CMakeFiles/nuturtle_robot_generate_messages_cpp.dir/rule:
+	cd /home/ricojia/coffee_bot/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 nu_packages/nuturtle_robot/CMakeFiles/nuturtle_robot_generate_messages_cpp.dir/rule
+.PHONY : nu_packages/nuturtle_robot/CMakeFiles/nuturtle_robot_generate_messages_cpp.dir/rule
 
-src/rotation.o: src/rotation.cpp.o
+# Convenience name for target.
+nuturtle_robot_generate_messages_cpp: nu_packages/nuturtle_robot/CMakeFiles/nuturtle_robot_generate_messages_cpp.dir/rule
 
-.PHONY : src/rotation.o
+.PHONY : nuturtle_robot_generate_messages_cpp
 
-# target to build an object file
-src/rotation.cpp.o:
-	cd /home/ricojia/coffee_bot/ros_ws/build && $(MAKE) -f nu_packages/nuturtle_robot/CMakeFiles/rotation.dir/build.make nu_packages/nuturtle_robot/CMakeFiles/rotation.dir/src/rotation.cpp.o
-.PHONY : src/rotation.cpp.o
+# fast build rule for target.
+nuturtle_robot_generate_messages_cpp/fast:
+	cd /home/ricojia/coffee_bot/ros_ws/build && $(MAKE) -f nu_packages/nuturtle_robot/CMakeFiles/nuturtle_robot_generate_messages_cpp.dir/build.make nu_packages/nuturtle_robot/CMakeFiles/nuturtle_robot_generate_messages_cpp.dir/build
+.PHONY : nuturtle_robot_generate_messages_cpp/fast
 
-src/rotation.i: src/rotation.cpp.i
+# Convenience name for target.
+nu_packages/nuturtle_robot/CMakeFiles/nuturtle_robot_generate_messages_eus.dir/rule:
+	cd /home/ricojia/coffee_bot/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 nu_packages/nuturtle_robot/CMakeFiles/nuturtle_robot_generate_messages_eus.dir/rule
+.PHONY : nu_packages/nuturtle_robot/CMakeFiles/nuturtle_robot_generate_messages_eus.dir/rule
 
-.PHONY : src/rotation.i
+# Convenience name for target.
+nuturtle_robot_generate_messages_eus: nu_packages/nuturtle_robot/CMakeFiles/nuturtle_robot_generate_messages_eus.dir/rule
 
-# target to preprocess a source file
-src/rotation.cpp.i:
-	cd /home/ricojia/coffee_bot/ros_ws/build && $(MAKE) -f nu_packages/nuturtle_robot/CMakeFiles/rotation.dir/build.make nu_packages/nuturtle_robot/CMakeFiles/rotation.dir/src/rotation.cpp.i
-.PHONY : src/rotation.cpp.i
+.PHONY : nuturtle_robot_generate_messages_eus
 
-src/rotation.s: src/rotation.cpp.s
+# fast build rule for target.
+nuturtle_robot_generate_messages_eus/fast:
+	cd /home/ricojia/coffee_bot/ros_ws/build && $(MAKE) -f nu_packages/nuturtle_robot/CMakeFiles/nuturtle_robot_generate_messages_eus.dir/build.make nu_packages/nuturtle_robot/CMakeFiles/nuturtle_robot_generate_messages_eus.dir/build
+.PHONY : nuturtle_robot_generate_messages_eus/fast
 
-.PHONY : src/rotation.s
+# Convenience name for target.
+nu_packages/nuturtle_robot/CMakeFiles/nuturtle_robot_geneus.dir/rule:
+	cd /home/ricojia/coffee_bot/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 nu_packages/nuturtle_robot/CMakeFiles/nuturtle_robot_geneus.dir/rule
+.PHONY : nu_packages/nuturtle_robot/CMakeFiles/nuturtle_robot_geneus.dir/rule
 
-# target to generate assembly for a file
-src/rotation.cpp.s:
-	cd /home/ricojia/coffee_bot/ros_ws/build && $(MAKE) -f nu_packages/nuturtle_robot/CMakeFiles/rotation.dir/build.make nu_packages/nuturtle_robot/CMakeFiles/rotation.dir/src/rotation.cpp.s
-.PHONY : src/rotation.cpp.s
+# Convenience name for target.
+nuturtle_robot_geneus: nu_packages/nuturtle_robot/CMakeFiles/nuturtle_robot_geneus.dir/rule
 
-src/translation.o: src/translation.cpp.o
+.PHONY : nuturtle_robot_geneus
 
-.PHONY : src/translation.o
+# fast build rule for target.
+nuturtle_robot_geneus/fast:
+	cd /home/ricojia/coffee_bot/ros_ws/build && $(MAKE) -f nu_packages/nuturtle_robot/CMakeFiles/nuturtle_robot_geneus.dir/build.make nu_packages/nuturtle_robot/CMakeFiles/nuturtle_robot_geneus.dir/build
+.PHONY : nuturtle_robot_geneus/fast
 
-# target to build an object file
-src/translation.cpp.o:
-	cd /home/ricojia/coffee_bot/ros_ws/build && $(MAKE) -f nu_packages/nuturtle_robot/CMakeFiles/translation.dir/build.make nu_packages/nuturtle_robot/CMakeFiles/translation.dir/src/translation.cpp.o
-.PHONY : src/translation.cpp.o
+# Convenience name for target.
+nu_packages/nuturtle_robot/CMakeFiles/nuturtle_robot_generate_messages_nodejs.dir/rule:
+	cd /home/ricojia/coffee_bot/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 nu_packages/nuturtle_robot/CMakeFiles/nuturtle_robot_generate_messages_nodejs.dir/rule
+.PHONY : nu_packages/nuturtle_robot/CMakeFiles/nuturtle_robot_generate_messages_nodejs.dir/rule
 
-src/translation.i: src/translation.cpp.i
+# Convenience name for target.
+nuturtle_robot_generate_messages_nodejs: nu_packages/nuturtle_robot/CMakeFiles/nuturtle_robot_generate_messages_nodejs.dir/rule
 
-.PHONY : src/translation.i
+.PHONY : nuturtle_robot_generate_messages_nodejs
 
-# target to preprocess a source file
-src/translation.cpp.i:
-	cd /home/ricojia/coffee_bot/ros_ws/build && $(MAKE) -f nu_packages/nuturtle_robot/CMakeFiles/translation.dir/build.make nu_packages/nuturtle_robot/CMakeFiles/translation.dir/src/translation.cpp.i
-.PHONY : src/translation.cpp.i
+# fast build rule for target.
+nuturtle_robot_generate_messages_nodejs/fast:
+	cd /home/ricojia/coffee_bot/ros_ws/build && $(MAKE) -f nu_packages/nuturtle_robot/CMakeFiles/nuturtle_robot_generate_messages_nodejs.dir/build.make nu_packages/nuturtle_robot/CMakeFiles/nuturtle_robot_generate_messages_nodejs.dir/build
+.PHONY : nuturtle_robot_generate_messages_nodejs/fast
 
-src/translation.s: src/translation.cpp.s
+# Convenience name for target.
+nu_packages/nuturtle_robot/CMakeFiles/nuturtle_robot_gennodejs.dir/rule:
+	cd /home/ricojia/coffee_bot/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 nu_packages/nuturtle_robot/CMakeFiles/nuturtle_robot_gennodejs.dir/rule
+.PHONY : nu_packages/nuturtle_robot/CMakeFiles/nuturtle_robot_gennodejs.dir/rule
 
-.PHONY : src/translation.s
+# Convenience name for target.
+nuturtle_robot_gennodejs: nu_packages/nuturtle_robot/CMakeFiles/nuturtle_robot_gennodejs.dir/rule
 
-# target to generate assembly for a file
-src/translation.cpp.s:
-	cd /home/ricojia/coffee_bot/ros_ws/build && $(MAKE) -f nu_packages/nuturtle_robot/CMakeFiles/translation.dir/build.make nu_packages/nuturtle_robot/CMakeFiles/translation.dir/src/translation.cpp.s
-.PHONY : src/translation.cpp.s
+.PHONY : nuturtle_robot_gennodejs
+
+# fast build rule for target.
+nuturtle_robot_gennodejs/fast:
+	cd /home/ricojia/coffee_bot/ros_ws/build && $(MAKE) -f nu_packages/nuturtle_robot/CMakeFiles/nuturtle_robot_gennodejs.dir/build.make nu_packages/nuturtle_robot/CMakeFiles/nuturtle_robot_gennodejs.dir/build
+.PHONY : nuturtle_robot_gennodejs/fast
+
+# Convenience name for target.
+nu_packages/nuturtle_robot/CMakeFiles/nuturtle_robot_generate_messages_py.dir/rule:
+	cd /home/ricojia/coffee_bot/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 nu_packages/nuturtle_robot/CMakeFiles/nuturtle_robot_generate_messages_py.dir/rule
+.PHONY : nu_packages/nuturtle_robot/CMakeFiles/nuturtle_robot_generate_messages_py.dir/rule
+
+# Convenience name for target.
+nuturtle_robot_generate_messages_py: nu_packages/nuturtle_robot/CMakeFiles/nuturtle_robot_generate_messages_py.dir/rule
+
+.PHONY : nuturtle_robot_generate_messages_py
+
+# fast build rule for target.
+nuturtle_robot_generate_messages_py/fast:
+	cd /home/ricojia/coffee_bot/ros_ws/build && $(MAKE) -f nu_packages/nuturtle_robot/CMakeFiles/nuturtle_robot_generate_messages_py.dir/build.make nu_packages/nuturtle_robot/CMakeFiles/nuturtle_robot_generate_messages_py.dir/build
+.PHONY : nuturtle_robot_generate_messages_py/fast
 
 src/turtle_interface.o: src/turtle_interface.cpp.o
 
@@ -635,85 +449,39 @@ src/turtle_interface.cpp.s:
 	cd /home/ricojia/coffee_bot/ros_ws/build && $(MAKE) -f nu_packages/nuturtle_robot/CMakeFiles/turtle_interface.dir/build.make nu_packages/nuturtle_robot/CMakeFiles/turtle_interface.dir/src/turtle_interface.cpp.s
 .PHONY : src/turtle_interface.cpp.s
 
-test/turtle_interface_test.o: test/turtle_interface_test.cpp.o
-
-.PHONY : test/turtle_interface_test.o
-
-# target to build an object file
-test/turtle_interface_test.cpp.o:
-	cd /home/ricojia/coffee_bot/ros_ws/build && $(MAKE) -f nu_packages/nuturtle_robot/CMakeFiles/turtle_interface_test.dir/build.make nu_packages/nuturtle_robot/CMakeFiles/turtle_interface_test.dir/test/turtle_interface_test.cpp.o
-.PHONY : test/turtle_interface_test.cpp.o
-
-test/turtle_interface_test.i: test/turtle_interface_test.cpp.i
-
-.PHONY : test/turtle_interface_test.i
-
-# target to preprocess a source file
-test/turtle_interface_test.cpp.i:
-	cd /home/ricojia/coffee_bot/ros_ws/build && $(MAKE) -f nu_packages/nuturtle_robot/CMakeFiles/turtle_interface_test.dir/build.make nu_packages/nuturtle_robot/CMakeFiles/turtle_interface_test.dir/test/turtle_interface_test.cpp.i
-.PHONY : test/turtle_interface_test.cpp.i
-
-test/turtle_interface_test.s: test/turtle_interface_test.cpp.s
-
-.PHONY : test/turtle_interface_test.s
-
-# target to generate assembly for a file
-test/turtle_interface_test.cpp.s:
-	cd /home/ricojia/coffee_bot/ros_ws/build && $(MAKE) -f nu_packages/nuturtle_robot/CMakeFiles/turtle_interface_test.dir/build.make nu_packages/nuturtle_robot/CMakeFiles/turtle_interface_test.dir/test/turtle_interface_test.cpp.s
-.PHONY : test/turtle_interface_test.cpp.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... list_install_components"
-	@echo "... clean_test_results_nuturtle_robot"
-	@echo "... _run_tests_nuturtle_robot_rostest"
-	@echo "... run_tests_nuturtle_robot_rostest"
-	@echo "... _run_tests_nuturtle_robot"
-	@echo "... nuturtle_robot_gencpp"
-	@echo "... _nuturtle_robot_generate_messages_check_deps_Start"
-	@echo "... install"
-	@echo "... _run_tests_nuturtle_robot_rostest_test_turtle_interface.test"
-	@echo "... nuturtle_robot_generate_messages_eus"
-	@echo "... nuturtle_robot_generate_messages_cpp"
-	@echo "... turtle_interface_test"
-	@echo "... nuturtle_robot_generate_messages_lisp"
-	@echo "... nuturtle_robot_genlisp"
+	@echo "... edit_cache"
 	@echo "... install/local"
 	@echo "... turtle_interface"
-	@echo "... nuturtle_robot_generate_messages_nodejs"
-	@echo "... nuturtle_robot_geneus"
-	@echo "... real_waypoint"
-	@echo "... test"
-	@echo "... run_tests_nuturtle_robot"
-	@echo "... nuturtle_robot_gennodejs"
 	@echo "... nuturtle_robot_generate_messages"
-	@echo "... translation"
-	@echo "... rebuild_cache"
-	@echo "... nuturtle_robot_generate_messages_py"
+	@echo "... nuturtle_robot_generate_messages_lisp"
+	@echo "... visualization_msgs_generate_messages_nodejs"
+	@echo "... visualization_msgs_generate_messages_py"
+	@echo "... list_install_components"
+	@echo "... visualization_msgs_generate_messages_lisp"
 	@echo "... install/strip"
 	@echo "... nuturtle_robot_genpy"
-	@echo "... edit_cache"
-	@echo "... run_tests_nuturtle_robot_rostest_test_turtle_interface.test"
-	@echo "... rotation"
-	@echo "... src/real_waypoint.o"
-	@echo "... src/real_waypoint.i"
-	@echo "... src/real_waypoint.s"
-	@echo "... src/rotation.o"
-	@echo "... src/rotation.i"
-	@echo "... src/rotation.s"
-	@echo "... src/translation.o"
-	@echo "... src/translation.i"
-	@echo "... src/translation.s"
+	@echo "... visualization_msgs_generate_messages_cpp"
+	@echo "... visualization_msgs_generate_messages_eus"
+	@echo "... nuturtle_robot_genlisp"
+	@echo "... nuturtle_robot_gencpp"
+	@echo "... install"
+	@echo "... nuturtle_robot_generate_messages_cpp"
+	@echo "... nuturtle_robot_generate_messages_eus"
+	@echo "... nuturtle_robot_geneus"
+	@echo "... nuturtle_robot_generate_messages_nodejs"
+	@echo "... test"
+	@echo "... nuturtle_robot_gennodejs"
+	@echo "... rebuild_cache"
+	@echo "... nuturtle_robot_generate_messages_py"
 	@echo "... src/turtle_interface.o"
 	@echo "... src/turtle_interface.i"
 	@echo "... src/turtle_interface.s"
-	@echo "... test/turtle_interface_test.o"
-	@echo "... test/turtle_interface_test.i"
-	@echo "... test/turtle_interface_test.s"
 .PHONY : help
 
 

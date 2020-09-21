@@ -23,6 +23,7 @@ find_package(catkin REQUIRED COMPONENTS
         tf
         std_srvs
         visualization_msgs
+        nuturtlebot
 )
 
 #find_package(
@@ -79,10 +80,6 @@ if (CATKIN_ENABLE_TESTING)
 # )
 
 ## Generate services in the 'srv' folder
- add_service_files(
-   FILES
-         Start.srv
- )
 
 ## Generate actions in the 'action' folder
 # add_action_files(
@@ -165,13 +162,7 @@ include_directories(
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
 add_executable(turtle_interface src/turtle_interface.cpp)
-add_executable(rotation src/rotation.cpp)
-add_executable(translation src/translation.cpp)
-add_executable(real_waypoint src/real_waypoint.cpp)
 
-add_dependencies(rotation ${nuturtle_robot_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
-add_dependencies(translation ${nuturtle_robot_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
-add_dependencies(real_waypoint ${nuturtle_robot_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
 ## target back to the shorter version for ease of user use
@@ -186,18 +177,6 @@ add_dependencies(real_waypoint ${nuturtle_robot_EXPORTED_TARGETS} ${catkin_EXPOR
 target_link_libraries(turtle_interface
    ${catkin_LIBRARIES})
 
-target_link_libraries(rotation
-        ${catkin_LIBRARIES}
-        )
-
-target_link_libraries(translation
-        ${catkin_LIBRARIES}
-        )
-
-target_link_libraries(real_waypoint
-        ${catkin_LIBRARIES}
-        )
-
 #############
 ## Install ##
 #############
@@ -208,14 +187,14 @@ target_link_libraries(real_waypoint
 ## Mark executable scripts (Python etc.) for installation
 ## in contrast to setup.py, you can choose the destination
  install(PROGRAMS
-   src/turtle_interface.cpp src/rotation.cpp src/translation.cpp src/real_waypoint.cpp
+   src/turtle_interface.cpp
    DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
  )
 
 
 ## Mark executables for installation
 ## See http://docs.ros.org/melodic/api/catkin/html/howto/format1/building_executables.html
- install(TARGETS turtle_interface rotation translation real_waypoint
+ install(TARGETS turtle_interface
    RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
  )
 
@@ -259,16 +238,5 @@ if (CATKIN_ENABLE_TESTING)
  # find_package(GTest REQUIRED)
  # find_package(rostest REQUIRED)
 
-# catkin_add_gtest(${PROJECT_NAME}_turtle_interface_test test/turtle_interface_test.cpp)
 
- add_rostest_gtest(turtle_interface_test
-         test/turtle_interface.test
-         test/turtle_interface_test.cpp
-         #         src/turtle_interface.cpp
-         )
- # add_dependencies(turtle_interface_test )
- target_link_libraries(turtle_interface_test
-         ${catkin_LIBRARIES} ${GTEST_LIBRARIES} gtest_main
-         )
- # add_rostest(test/turtle_interface.test)
 endif()

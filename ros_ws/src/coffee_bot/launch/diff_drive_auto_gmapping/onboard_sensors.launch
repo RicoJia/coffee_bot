@@ -1,0 +1,28 @@
+<launch>
+
+  <arg name="onboard" default="true"/>
+
+  <!--  TODO delete this, this is just for testing, -->
+  <!--  nu_turtle control, /cmd_vel -> pwm -->
+
+  <machine name="remote_from_pc" address="192.168.1.29" user="coffeebot" env-loader="/home/coffeebot/onboard_ros.bash"/>
+  <machine name="local_ricomachine" address="192.168.1.11" user="ricojia" env-loader="/home/ricojia/coffee_bot/ros_ws/src/onboard_pkg/local_ricomachine.bash"/>
+
+
+  <!--  nu_turtle control, /cmd_vel -> pwm -->
+  <node name="turtle_interface" type="turtle_interface" pkg="nuturtle_robot" output="screen" machine="local_ricomachine">
+    <rosparam file="$(find coffee_bot)/config/params.yaml" command="load"/>
+    <param name="odom_frame_name" value="odom"/>
+    <param name="base_link_name" value="base_link"/>
+    <param name="imu_topic_name" value="imu_data"/>
+  </node>
+
+  <node name="cmd_vel_executioner" type="cmd_vel_executioner" pkg="cmd_vel_executioner" output="screen" machine="remote_from_pc"/>
+
+  <node name="phidgets_imu_node" type="phidgets_imu_node" pkg="phidgets_imu" machine="remote_from_pc"/>
+  <node name="imu_filter_node" type="imu_filter_node" pkg="imu_filter_madgwick" machine="local_ricomachine"/>
+
+
+
+</launch>
+

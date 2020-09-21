@@ -38,7 +38,7 @@
             <topicName>imu_data</topicName>
             <serviceName>imu_service</serviceName>
             <gaussianNoise>0.0</gaussianNoise>
-            <updateRate>20.0</updateRate>
+            <updateRate>30.0</updateRate>
         </plugin>
     </gazebo>
 
@@ -52,7 +52,6 @@
         <maxVel>0.1</maxVel>
         <kp>500000</kp>
         <kd>10</kd>
-<!--        <dampingFactor>1</dampingFactor>-->
     </gazebo>
 
     <gazebo reference="left_wheel">
@@ -64,7 +63,6 @@
         <maxVel>0.1</maxVel>
         <kp>500000</kp>
         <kd>10</kd>
-<!--        <dampingFactor>1</dampingFactor>-->
     </gazebo>
 
     <gazebo reference="ball_caster">
@@ -76,7 +74,6 @@
             <maxVel>1.0</maxVel>
         <kp>1000000</kp>
         <kd>100</kd>
-<!--        <dampingFactor>1</dampingFactor>-->
     </gazebo>
 
     <!--    specify the laser scanner-->

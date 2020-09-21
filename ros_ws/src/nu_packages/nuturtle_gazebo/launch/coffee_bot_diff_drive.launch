@@ -1,7 +1,6 @@
 <launch>
 
     <include file="$(find gazebo_ros)/launch/empty_world.launch">
-        <!--        TODO, change find $(find nuturtle_gazebo)? also change name?-->
         <arg name="world_name" value="$(find coffee_bot)/worlds/jersy_world.world"/>
         <arg name="paused" value="false"/>
         <arg name="use_sim_time" value="true"/>
@@ -16,7 +15,7 @@
 
 <!--    NOTE: when you save a world model, if your robot is already in the world model, it will become part of your model!!-->
 
-    <rosparam file="$(find nuslam)/config/params.yaml" command="load"/>
+    <rosparam file="$(find coffee_bot)/config/params.yaml" command="load"/>
     <param name="robot_description" command="$(find xacro)/xacro $(find nuturtle_gazebo)/urdf/diff_drive.gazebo.xacro"/>
 
     <node name="mybot_spawn" pkg="gazebo_ros" type="spawn_model" output="screen"

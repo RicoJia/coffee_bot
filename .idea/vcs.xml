@@ -3,5 +3,8 @@
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/ros_ws/src/nu_packages/nuturtle" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/ros_ws/src/onboard_pkgs/nuturtle" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/ros_ws/src/onboard_pkgs/phidget_imu/phidgets_drivers" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/ros_ws/src/onboard_pkgs/rplidar_ros" vcs="Git" />
   </component>
 </project>

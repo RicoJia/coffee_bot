@@ -1,0 +1,8 @@
+prefix=/home/ricojia/coffee_bot/ros_ws/devel
+
+Name: libphidget21
+Description: Description of libphidget21
+Version: 0.7.10
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 
