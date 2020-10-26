@@ -21,6 +21,7 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "/home/ricojia/coffee_bot/ros_ws/src/nu_packages/rigid2d/include"
   "/opt/ros/melodic/include"
   "/opt/ros/melodic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp"
+  "/cmake/cfgbuild.cmake"
   "/usr/include/eigen3"
   )
 

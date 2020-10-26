@@ -245,7 +245,7 @@ namespace rigid2d
         /// \returns a reference to the newly transformed operator
         Transform2D & operator*=(const Transform2D & rhs);
 
-        /// \brief return theta, x, y in a Twist2D object
+        /// \brief return [theta, x, y] in a Twist2D object
         /// \returns a Twist2D object
         Twist2D displacement() const;       //TODO: check math
 

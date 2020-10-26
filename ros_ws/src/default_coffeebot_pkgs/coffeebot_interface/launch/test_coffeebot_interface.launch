@@ -1,0 +1,23 @@
+<launch>
+
+  <machine name="remote_from_pc" address="192.168.1.29" user="coffeebot" env-loader="/home/coffeebot/onboard_ros.bash"/>
+
+    <node name="teleop_twist_keyboard" type="teleop_twist_keyboard" output="screen" pkg="teleop_twist_keyboard"/>
+  <node name="coffeebot_interface" type="coffeebot_interface" pkg="coffeebot_interface" output="screen" machine="remote_from_pc"/>
+  <node name="rqt_console" type="rqt_console" pkg="rqt_console" output="screen"/>
+  <!--  nu_turtle control, /cmd_vel -> pwm -->
+  <node name="turtle_interface" type="turtle_interface" pkg="nuturtle_robot" output="screen">
+    <rosparam file="$(find coffee_bot)/config/params.yaml" command="load"/>
+    <param name="odom_frame_name" value="odom"/>
+    <param name="base_link_name" value="base_link"/>
+    <param name="imu_topic_name" value="imu_data"/>
+    <!--    0 means no imu, 1 means imu_only, 2 means mix imu and coarse cmd_vel-->
+    <param name="imu_mode" value="2"/>
+    <param name="to_calibrate_imu" value="true"/>
+    <!--    <param name="freq" value="2.0"/>-->
+  </node>
+
+
+</launch>
+
+

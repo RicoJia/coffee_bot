@@ -24,7 +24,9 @@ find_package(catkin REQUIRED COMPONENTS
         std_srvs
         visualization_msgs
         nuturtlebot
-)
+        dynamic_reconfigure
+     )
+
 
 #find_package(
 #        nuturtlebot
@@ -43,7 +45,7 @@ if (CATKIN_ENABLE_TESTING)
 # find_package(Boost REQUIRED COMPONENTS system)
 
 
-## Uncomment this if the package has a setup.py. This macro ensures
+## Uncomment this if the package has a setup.pyThis macro ensures
 ## modules and global scripts declared therein get installed
 ## See http://ros.org/doc/api/catkin/html/user_guide/setup_dot_py.html
 # catkin_python_setup()
@@ -55,7 +57,7 @@ if (CATKIN_ENABLE_TESTING)
 ## To declare and build messages, services or actions from within this
 ## package, follow these steps:
 ## * Let MSG_DEP_SET be the set of packages whose message types you use in
-##   your messages/services/actions (e.g. std_msgs, actionlib_msgs, ...).
+##   your messages/services/actions (e.gstd_msgs, actionlib_msgs, ...).
 ## * In the file package.xml:
 ##   * add a build_depend tag for "message_generation"
 ##   * add a build_depend and a exec_depend tag for each package in MSG_DEP_SET
@@ -111,10 +113,8 @@ if (CATKIN_ENABLE_TESTING)
 ##     and list every .cfg file to be processed
 
 ## Generate dynamic reconfigure parameters in the 'cfg' folder
-# generate_dynamic_reconfigure_options(
-#   cfg/DynReconf1.cfg
-#   cfg/DynReconf2.cfg
-# )
+
+generate_dynamic_reconfigure_options( cfg/TurtleInterface.cfg)
 
 ###################################
 ## catkin specific configuration ##
@@ -148,6 +148,9 @@ include_directories(
   ${catkin_INCLUDE_DIRS}
 )
 
+include_directories(${dynamic_reconfigure_PACKAGE_PATH}/cmake/cfgbuild.cmake)
+
+
 ## Declare a C++ library
 # add_library(${PROJECT_NAME}
 #   src/${PROJECT_NAME}/nuturtle_robot.cpp
@@ -166,16 +169,19 @@ add_executable(turtle_interface src/turtle_interface.cpp)
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
 ## target back to the shorter version for ease of user use
-## e.g. "rosrun someones_pkg node" instead of "rosrun someones_pkg someones_pkg_node"
+## e.g"rosrun someones_pkg node" instead of "rosrun someones_pkg someones_pkg_node"
 # set_target_properties(${PROJECT_NAME}_node PROPERTIES OUTPUT_NAME node PREFIX "")
 
 ## Add cmake target dependencies of the executable
 ## same as for the library above
 # add_dependencies(turtle_interface ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+add_dependencies(turtle_interface ${PROJECT_NAME}_gencfg)
 
 ## Specify libraries to link a library or executable target against
 target_link_libraries(turtle_interface
    ${catkin_LIBRARIES})
+target_link_libraries(turtle_interface ${catkin_LIBRARIES})
+
 
 #############
 ## Install ##
@@ -213,7 +219,7 @@ target_link_libraries(turtle_interface
 #   PATTERN ".svn" EXCLUDE
 # )
 
-## Mark other files for installation (e.g. launch and bag files, etc.)
+## Mark other files for installation (e.glaunch and bag files, etc.)
 # install(FILES
 #   # myfile1
 #   # myfile2
@@ -233,6 +239,8 @@ install(DIRECTORY launch/ DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/launch
 
 ## Add folders to be run by python nosetests
 # catkin_add_nosetests(test)
+
+#dynamic reconfigure
 
 if (CATKIN_ENABLE_TESTING)
  # find_package(GTest REQUIRED)

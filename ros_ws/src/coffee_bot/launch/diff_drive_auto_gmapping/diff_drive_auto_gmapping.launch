@@ -1,22 +1,15 @@
 <launch>
 
-<!-- Arguments --> 
-  <arg name="slam_methods" default="gmapping"/>
-  <arg name="model" default="$(env TURTLEBOT3_MODEL)" doc="model type [burger, waffle, waffle_pi]"/>
-  <arg name="configuration_basename" default="turtlebot3_lds_2d.lua"/>
-
 <!--  <arg name="map_file" default="$(find coffee_bot)/maps/bare_map.yaml"/>-->
   <arg name="open_rviz" default="true"/>
-  <arg name="add_obstacle" default="false"/>
+  <arg name="mapping" default="true"/>
 
   <arg name="initial_pose_x" default="-3"/>
   <arg name="initial_pose_y" default="1"/>
   <arg name="initial_pose_a" default="0"/>
 
-  <arg name="onboard" default="false"/>
-
- <!-- Gazebo environment-->
-  <include file="$(find nuturtle_gazebo)/launch/coffee_bot_diff_drive.launch"/>
+  <arg name="onboard" default="true" doc="true if it's operating onboard, false if we are testing using our laptop"/>
+  <arg name="test_robot" default="false" doc="true if we do line or rotation test on the robot, false if we are doing other things"/>
 
 <!--  nu_turtle control, /cmd_vel -> pwm -->
   <node name="turtle_interface" type="turtle_interface" pkg="nuturtle_robot" output="screen">
@@ -24,36 +17,57 @@
     <param name="odom_frame_name" value="odom"/>
     <param name="base_link_name" value="base_link"/>
     <param name="imu_topic_name" value="imu_data"/>
+<!--    0 means no imu, 1 means imu_only, 2 means mix imu and coarse cmd_vel-->
+    <param name="imu_mode" value="2"/>
+    <param name="to_calibrate_imu" value="true"/>
 <!--    <param name="freq" value="2.0"/>-->
   </node>
 
-    <!-- rviz -->
-  <group if="$(arg open_rviz)">
-    <node pkg="rviz" type="rviz" name="rviz" required="true"
-          args="-d $(find turtlebot3_navigation)/rviz/turtlebot3_navigation.rviz"/>
-  </group>
+  <include file="$(find coffee_bot)/launch/diff_drive_auto_gmapping/onboard_sensors.launch">
+    <arg name="onboard" value="$(arg onboard)"/>
+  </include>
 
-  <!--  TODO, change launch method -->
-  <!--gmapping -->
-  <include file="$(find turtlebot3_slam)/launch/turtlebot3_$(arg slam_methods).launch">
-    <arg name="model" value="$(arg model)"/>
-    <arg name="configuration_basename" value="$(arg configuration_basename)"/>
+  <include file="$(find coffee_bot)/launch/diff_drive_auto_gmapping/amcl_diff.launch" unless="$(arg mapping)">
+  </include>
+  <include file="$(find coffee_bot)/launch/diff_drive_auto_gmapping/turtlebot3_gmapping.launch" if="$(arg mapping)">
     <arg name="set_base_frame" value="base_link"/>
   </include>
 
-  <param name="/use_sim_time" value = "true"/>
+  <group if="$(arg test_robot)">
+    <node name="test_robot" type="test_robot" output="screen" pkg="coffee_bot"/>
+  </group>
 
-  <node pkg="coffee_bot" name="auto_gmapping" type="auto_gmapping"/>
-
+  <group unless="$(arg test_robot)">
   <!--  /odom -> /base_link -> /base_scan-->
-  <node pkg="tf" type="static_transform_publisher" name="base_scan_broadcaster" args="1 0 0 0 0 0 1 base_link base_scan 1" />
-  <node pkg="tf" type="static_transform_publisher" name="base_footprint_broadcaster" args="1 0 0 0 0 0 1 base_link base_footprint 1" />
   <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"/>
+    <!-- rviz -->
+
+<!--  keyboard teleop, press 1 to turn on the teleop, 0 to cancel it-->
+  <node name="teleop_twist_keyboard" type="teleop_twist_keyboard" output="screen" pkg="teleop_twist_keyboard"/>
+
+
+
+  <group if="$(arg open_rviz)">
+    <node pkg="rviz" type="rviz" name="rviz" required="true"
+          args="-d $(find coffee_bot)/rviz/coffee_bot_rviz.rviz"/>
+    <!-- &lt;!&ndash; robot_description and Gazebo environment&ndash;&gt;-->
+    <include file="$(find nuturtle_gazebo)/launch/coffee_bot_diff_drive.launch">
+      <arg name="onboard" value="$(arg onboard)"/>
+    </include>
+  </group>
+
+    <!-- Run the map server -->
+    <arg name="map_file" default="$(find coffee_bot)/maps/mancave704_coarse.yaml"/>
+    <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)" unless="$(arg mapping)"/>
+
+<!--  <node pkg="coffee_bot" name="auto_gmapping" type="auto_gmapping"/>-->
 
   <!-- move_base customized -->
-  <include file="$(find coffee_bot)/launch/diff_drive_auto_gmapping/move_base_diff_drive.launch">
-    <arg name="model" value="$(arg model)" />
+  <include file="$(find coffee_bot)/launch/diff_drive_auto_gmapping/move_base_diff_drive.launch" unless="$(arg mapping)">
+    <arg name="cmd_vel_topic" value="move_base_cmd_vel"/>
   </include>
+  </group>
+
 
 
 </launch>

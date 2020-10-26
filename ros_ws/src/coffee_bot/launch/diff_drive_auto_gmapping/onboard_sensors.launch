@@ -9,20 +9,72 @@
   <machine name="local_ricomachine" address="192.168.1.11" user="ricojia" env-loader="/home/ricojia/coffee_bot/ros_ws/src/onboard_pkg/local_ricomachine.bash"/>
 
 
+  <!--########################################### Onboard ###########################################-->
+  <group if="$(arg onboard)">
+
+    <node name="coffeebot_interface" type="coffeebot_interface" pkg="coffeebot_interface" output="screen" machine="remote_from_pc"/>
+
+    <!--######################### LIDAR #########################-->
+    <node name="rplidarNode"          pkg="rplidar_ros"  type="rplidarNode" machine="remote_from_pc">
+      <param name="serial_port"         type="string" value="/dev/ttySLAB0"/>
+      <param name="serial_baudrate"     type="int"    value="115200"/><!--A1/A2 -->
+      <param name="frame_id"            type="string" value="scan"/>
+      <param name="inverted"            type="bool"   value="false"/>
+      <param name="angle_compensate"    type="bool"   value="true"/>
+      <param name="scan_mode"           type="string"  value="Express"/>
+    </node>
+
+    <!--######################### IMU #########################-->
+    <node pkg="nodelet" type="nodelet" name="imu_manager" args="manager" output="screen" machine="remote_from_pc"/>
+
+    <node pkg="nodelet" type="nodelet" name="PhidgetsImuNodelet" args="load phidgets_imu/PhidgetsImuNodelet imu_manager" output="screen" machine="remote_from_pc">
+      <param name="period" value="4"/>
+    </node>
+
+  </group>
+
+
+  <!--########################################### Testing ###########################################-->
+  <group unless="$(arg onboard)">
+
+    <!--######################### LIDAR #########################-->
+<!--    <node name="rplidarNode"          pkg="rplidar_ros"  type="rplidarNode" output="screen" machine="local_ricomachine">-->
+<!--      <param name="serial_port"         type="string" value="/dev/ttySLAB0"/>-->
+<!--      <param name="serial_baudrate"     type="int"    value="115200"/>&lt;!&ndash;A1/A2 &ndash;&gt;-->
+<!--      <param name="frame_id"            type="string" value="scan"/>-->
+<!--      <param name="inverted"            type="bool"   value="true"/>-->
+<!--      <param name="angle_compensate"    type="bool"   value="true"/>-->
+<!--      <param name="scan_mode"           type="string"  value="Express"/>-->
+<!--    </node>-->
+
+    <!--######################### IMU #########################-->
+    <node pkg="nodelet" type="nodelet" name="imu_manager" args="manager" output="screen" machine="local_ricomachine"/>
+
+    <node pkg="nodelet" type="nodelet" name="PhidgetsImuNodelet" args="load phidgets_imu/PhidgetsImuNodelet imu_manager" output="screen" machine="local_ricomachine">
+      <param name="period" value="100"/>
+    </node>
+
+  </group>
+
   <!--  nu_turtle control, /cmd_vel -> pwm -->
-  <node name="turtle_interface" type="turtle_interface" pkg="nuturtle_robot" output="screen" machine="local_ricomachine">
-    <rosparam file="$(find coffee_bot)/config/params.yaml" command="load"/>
-    <param name="odom_frame_name" value="odom"/>
-    <param name="base_link_name" value="base_link"/>
-    <param name="imu_topic_name" value="imu_data"/>
+<!--  <node name="turtle_interface" type="turtle_interface" pkg="nuturtle_robot" output="screen">-->
+<!--    <rosparam file="$(find coffee_bot)/config/params.yaml" command="load"/>-->
+<!--    <param name="odom_frame_name" value="odom"/>-->
+<!--    <param name="base_link_name" value="base_link"/>-->
+<!--    <param name="imu_topic_name" value="imu_data"/>-->
+<!--    &lt;!&ndash;    <param name="freq" value="2.0"/>&ndash;&gt;-->
+<!--  </node>-->
+
+  <!--########################################### Public ###########################################-->
+<!--  <node pkg="tf" type="static_transform_publisher" name="rp_demo_broadcaster" args="0 0 0 0 0 0 1 base_link scan 100" machine="local_ricomachine"/>-->
+
+  <node pkg="nodelet" type="nodelet" name="ImuFilterNodelet" args="load imu_filter_madgwick/ImuFilterNodelet imu_manager" output="screen" machine="local_ricomachine">
+    <param name="use_mag" value="false"/>
+    <param name="use_magnetic_field_msg" value="false"/>
+    <remap from="imu/data" to="imu_data"/>
+    <param name="publish_tf" value="false"/>
+    <param name="remove_gravity_vector" value="false"/>
   </node>
-
-  <node name="cmd_vel_executioner" type="cmd_vel_executioner" pkg="cmd_vel_executioner" output="screen" machine="remote_from_pc"/>
-
-  <node name="phidgets_imu_node" type="phidgets_imu_node" pkg="phidgets_imu" machine="remote_from_pc"/>
-  <node name="imu_filter_node" type="imu_filter_node" pkg="imu_filter_madgwick" machine="local_ricomachine"/>
-
-
 
 </launch>
 

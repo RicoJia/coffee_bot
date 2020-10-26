@@ -1,0 +1,8 @@
+prefix=/home/ricojia/coffee_bot/ros_ws/install
+
+Name: coffeebot_interface
+Description: Description of coffeebot_interface
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

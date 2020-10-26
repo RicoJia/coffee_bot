@@ -1,6 +1,6 @@
 set(_CATKIN_CURRENT_PACKAGE "robot_pose_ekf")
-set(robot_pose_ekf_VERSION "1.14.7")
-set(robot_pose_ekf_MAINTAINER "David V. Lu!! <davidvlu@gmail.com>, Michael Ferguson <mfergs7@gmail.com>, Aaron Hoy <ahoy@fetchrobotics.com>")
+set(robot_pose_ekf_VERSION "1.14.5")
+set(robot_pose_ekf_MAINTAINER "ROS Orphaned Package Maintainers <ros-orphaned-packages@googlegroups.com>")
 set(robot_pose_ekf_PACKAGE_FORMAT "1")
 set(robot_pose_ekf_BUILD_DEPENDS "message_generation" "roscpp" "bfl" "std_msgs" "geometry_msgs" "sensor_msgs" "nav_msgs" "tf" "message_generation")
 set(robot_pose_ekf_BUILD_EXPORT_DEPENDS "message_runtime" "roscpp" "bfl" "std_msgs" "geometry_msgs" "sensor_msgs" "nav_msgs" "tf")

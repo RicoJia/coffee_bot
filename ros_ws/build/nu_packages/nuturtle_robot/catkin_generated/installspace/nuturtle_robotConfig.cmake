@@ -91,9 +91,9 @@ endif()
 # flag project as catkin-based to distinguish if a find_package()-ed project is a catkin project
 set(nuturtle_robot_FOUND_CATKIN_PROJECT TRUE)
 
-if(NOT " " STREQUAL " ")
+if(NOT "include " STREQUAL " ")
   set(nuturtle_robot_INCLUDE_DIRS "")
-  set(_include_dirs "")
+  set(_include_dirs "include")
   if(NOT " " STREQUAL " ")
     set(_report "Check the issue tracker '' and consider creating a ticket if the problem has not been reported yet.")
   elseif(NOT " " STREQUAL " ")
@@ -154,7 +154,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/ricojia/coffee_bot/ros_ws/install/lib;/home/ricojia/coffee_bot/ros_ws/devel/lib;/home/ricojia/rethink_new_ws/devel/lib;/home/ricojia/omnid_project/test_moveit/devel/lib;/opt/ros/melodic/lib)
+    foreach(path /home/ricojia/coffee_bot/ros_ws/install/lib;/home/ricojia/coffee_bot/ros_ws/devel/lib;/home/ricojia/rethink_new_ws/devel/lib;/opt/ros/melodic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)
@@ -177,7 +177,7 @@ foreach(library ${libraries})
   endif()
 endforeach()
 
-set(nuturtle_robot_EXPORTED_TARGETS "nuturtle_robot_generate_messages_cpp;nuturtle_robot_generate_messages_eus;nuturtle_robot_generate_messages_lisp;nuturtle_robot_generate_messages_nodejs;nuturtle_robot_generate_messages_py")
+set(nuturtle_robot_EXPORTED_TARGETS "nuturtle_robot_generate_messages_cpp;nuturtle_robot_generate_messages_eus;nuturtle_robot_generate_messages_lisp;nuturtle_robot_generate_messages_nodejs;nuturtle_robot_generate_messages_py;nuturtle_robot_gencfg")
 # create dummy targets for exported code generation targets to make life of users easier
 foreach(t ${nuturtle_robot_EXPORTED_TARGETS})
   if(NOT TARGET ${t})

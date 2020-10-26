@@ -25,33 +25,13 @@ struct SensorData_
 
   SensorData_()
     : stamp()
-    , left_encoder(0)
-    , right_encoder(0)
-    , accelX(0)
-    , accelY(0)
-    , accelZ(0)
-    , gyroX(0)
-    , gyroY(0)
-    , gyroZ(0)
-    , magX(0)
-    , magY(0)
-    , magZ(0)
-    , battery_voltage(0.0)  {
+    , left_encoder(0.0)
+    , right_encoder(0.0)  {
     }
   SensorData_(const ContainerAllocator& _alloc)
     : stamp()
-    , left_encoder(0)
-    , right_encoder(0)
-    , accelX(0)
-    , accelY(0)
-    , accelZ(0)
-    , gyroX(0)
-    , gyroY(0)
-    , gyroZ(0)
-    , magX(0)
-    , magY(0)
-    , magZ(0)
-    , battery_voltage(0.0)  {
+    , left_encoder(0.0)
+    , right_encoder(0.0)  {
   (void)_alloc;
     }
 
@@ -60,41 +40,11 @@ struct SensorData_
    typedef ros::Time _stamp_type;
   _stamp_type stamp;
 
-   typedef int32_t _left_encoder_type;
+   typedef float _left_encoder_type;
   _left_encoder_type left_encoder;
 
-   typedef int32_t _right_encoder_type;
+   typedef float _right_encoder_type;
   _right_encoder_type right_encoder;
-
-   typedef int16_t _accelX_type;
-  _accelX_type accelX;
-
-   typedef int16_t _accelY_type;
-  _accelY_type accelY;
-
-   typedef int16_t _accelZ_type;
-  _accelZ_type accelZ;
-
-   typedef int16_t _gyroX_type;
-  _gyroX_type gyroX;
-
-   typedef int16_t _gyroY_type;
-  _gyroY_type gyroY;
-
-   typedef int16_t _gyroZ_type;
-  _gyroZ_type gyroZ;
-
-   typedef int16_t _magX_type;
-  _magX_type magX;
-
-   typedef int16_t _magY_type;
-  _magY_type magY;
-
-   typedef int16_t _magZ_type;
-  _magZ_type magZ;
-
-   typedef float _battery_voltage_type;
-  _battery_voltage_type battery_voltage;
 
 
 
@@ -127,17 +77,7 @@ bool operator==(const ::nuturtlebot::SensorData_<ContainerAllocator1> & lhs, con
 {
   return lhs.stamp == rhs.stamp &&
     lhs.left_encoder == rhs.left_encoder &&
-    lhs.right_encoder == rhs.right_encoder &&
-    lhs.accelX == rhs.accelX &&
-    lhs.accelY == rhs.accelY &&
-    lhs.accelZ == rhs.accelZ &&
-    lhs.gyroX == rhs.gyroX &&
-    lhs.gyroY == rhs.gyroY &&
-    lhs.gyroZ == rhs.gyroZ &&
-    lhs.magX == rhs.magX &&
-    lhs.magY == rhs.magY &&
-    lhs.magZ == rhs.magZ &&
-    lhs.battery_voltage == rhs.battery_voltage;
+    lhs.right_encoder == rhs.right_encoder;
 }
 
 template<typename ContainerAllocator1, typename ContainerAllocator2>
@@ -194,12 +134,12 @@ struct MD5Sum< ::nuturtlebot::SensorData_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "e5bb303db7aaeaf900294f1b85ecc818";
+    return "5e11846fa8bcf550efab217e45ea9e19";
   }
 
   static const char* value(const ::nuturtlebot::SensorData_<ContainerAllocator>&) { return value(); }
-  static const uint64_t static_value1 = 0xe5bb303db7aaeaf9ULL;
-  static const uint64_t static_value2 = 0x00294f1b85ecc818ULL;
+  static const uint64_t static_value1 = 0x5e11846fa8bcf550ULL;
+  static const uint64_t static_value2 = 0xefab217e45ea9e19ULL;
 };
 
 template<class ContainerAllocator>
@@ -219,18 +159,8 @@ struct Definition< ::nuturtlebot::SensorData_<ContainerAllocator> >
   static const char* value()
   {
     return "time stamp\n"
-"int32 left_encoder\n"
-"int32 right_encoder\n"
-"int16 accelX\n"
-"int16 accelY\n"
-"int16 accelZ\n"
-"int16 gyroX\n"
-"int16 gyroY\n"
-"int16 gyroZ\n"
-"int16 magX\n"
-"int16 magY\n"
-"int16 magZ\n"
-"float32 battery_voltage\n"
+"float32 left_encoder\n"
+"float32 right_encoder\n"
 ;
   }
 
@@ -252,16 +182,6 @@ namespace serialization
       stream.next(m.stamp);
       stream.next(m.left_encoder);
       stream.next(m.right_encoder);
-      stream.next(m.accelX);
-      stream.next(m.accelY);
-      stream.next(m.accelZ);
-      stream.next(m.gyroX);
-      stream.next(m.gyroY);
-      stream.next(m.gyroZ);
-      stream.next(m.magX);
-      stream.next(m.magY);
-      stream.next(m.magZ);
-      stream.next(m.battery_voltage);
     }
 
     ROS_DECLARE_ALLINONE_SERIALIZER
@@ -283,29 +203,9 @@ struct Printer< ::nuturtlebot::SensorData_<ContainerAllocator> >
     s << indent << "stamp: ";
     Printer<ros::Time>::stream(s, indent + "  ", v.stamp);
     s << indent << "left_encoder: ";
-    Printer<int32_t>::stream(s, indent + "  ", v.left_encoder);
+    Printer<float>::stream(s, indent + "  ", v.left_encoder);
     s << indent << "right_encoder: ";
-    Printer<int32_t>::stream(s, indent + "  ", v.right_encoder);
-    s << indent << "accelX: ";
-    Printer<int16_t>::stream(s, indent + "  ", v.accelX);
-    s << indent << "accelY: ";
-    Printer<int16_t>::stream(s, indent + "  ", v.accelY);
-    s << indent << "accelZ: ";
-    Printer<int16_t>::stream(s, indent + "  ", v.accelZ);
-    s << indent << "gyroX: ";
-    Printer<int16_t>::stream(s, indent + "  ", v.gyroX);
-    s << indent << "gyroY: ";
-    Printer<int16_t>::stream(s, indent + "  ", v.gyroY);
-    s << indent << "gyroZ: ";
-    Printer<int16_t>::stream(s, indent + "  ", v.gyroZ);
-    s << indent << "magX: ";
-    Printer<int16_t>::stream(s, indent + "  ", v.magX);
-    s << indent << "magY: ";
-    Printer<int16_t>::stream(s, indent + "  ", v.magY);
-    s << indent << "magZ: ";
-    Printer<int16_t>::stream(s, indent + "  ", v.magZ);
-    s << indent << "battery_voltage: ";
-    Printer<float>::stream(s, indent + "  ", v.battery_voltage);
+    Printer<float>::stream(s, indent + "  ", v.right_encoder);
   }
 };
 

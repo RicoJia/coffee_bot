@@ -46,20 +46,25 @@ body_frame_id: 'base_link'
 #TODO: update the rest
 wheel_width: 0.018
 wheel_radius: 0.044
-wheel_base: 0.16
-chassis_length: 0.138
+wheel_base: 0.23
+chassis_length: 0.24
 chassis_thickness: 0.140
-wheel_mass: 0.03
+wheel_mass: 0.06
 chassis_mass: 1.0
 wheel_axle_offset: 0.02
 laser_scanner_radius: 0.02
 laser_scanner_height: 0.02
 
 encoder_ticks_per_rev:  4096  #8192
-max_trans_vel: 0.25   # TODO: test: set 1s and test distance it travelled
-max_rot_vel: 2.84     # 0.25
-max_motor_rot_vel: 6.35492  # max_trans_vel/wheel_radius
+max_trans_vel: 0.32   # Tuned TODO: test: set 1s and test distance it travelled;
+max_rot_vel: 0.50     # 0.25  28.5 deg
+max_motor_rot_vel: 7.27  # max_trans_vel/wheel_radius
 max_wheel_command: 32      #? maximum PWM
+k_rot_comp: 1.3  #to compensate for the additional friction in rotation
+ang_k: 1.0
+cmd_trans_vel: 0.20   #this is the "cheat" cmd_vel
+cmd_ang_vel: 0.62     #cheat angular velocity
+#min_pwm: 10 #minimum pwm for the robot
 
 left_wheel_joint: 'left_wheel_axle'
 right_wheel_joint: 'right_wheel_axle'
@@ -68,7 +73,6 @@ frequency: 10   #Tip: has to be the same as move_base planning frequency!
 rotation_pub_frequency: 100
 translation_pub_frequency: 100
 frac_vel: 1.0
-
 
 ######################################## Waypoint Following params
 ##waypoints_x: [0.0, 0.5, 1.0, 0.25, -0.5]

@@ -5,4 +5,4 @@ PROJECT_CATKIN_DEPENDS = "geometry_msgs;message_runtime;nav_msgs;roscpp;sensor_m
 PKG_CONFIG_LIBRARIES_WITH_PREFIX = "".split(';') if "" != "" else []
 PROJECT_NAME = "robot_pose_ekf"
 PROJECT_SPACE_DIR = "/home/ricojia/coffee_bot/ros_ws/install"
-PROJECT_VERSION = "1.14.7"
+PROJECT_VERSION = "1.14.5"

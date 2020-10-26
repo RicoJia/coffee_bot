@@ -1,6 +1,8 @@
 <launch>
 
-    <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="onboard" default="false"/>
+
+    <include file="$(find gazebo_ros)/launch/empty_world.launch" unless="$(arg onboard)">
         <arg name="world_name" value="$(find coffee_bot)/worlds/jersy_world.world"/>
         <arg name="paused" value="false"/>
         <arg name="use_sim_time" value="true"/>
@@ -19,6 +21,7 @@
     <param name="robot_description" command="$(find xacro)/xacro $(find nuturtle_gazebo)/urdf/diff_drive.gazebo.xacro"/>
 
     <node name="mybot_spawn" pkg="gazebo_ros" type="spawn_model" output="screen"
-          args="-urdf -param robot_description -model diff_drive2 -x $(arg x) -y $(arg y) -z $(arg z)" />
+          args="-urdf -param robot_description -model diff_drive2 -x $(arg x) -y $(arg y) -z $(arg z)"
+          unless="$(arg onboard)"/>
 
 </launch>

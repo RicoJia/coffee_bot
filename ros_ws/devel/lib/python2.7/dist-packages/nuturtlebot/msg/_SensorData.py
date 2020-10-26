@@ -8,25 +8,15 @@ import struct
 import genpy
 
 class SensorData(genpy.Message):
-  _md5sum = "e5bb303db7aaeaf900294f1b85ecc818"
+  _md5sum = "5e11846fa8bcf550efab217e45ea9e19"
   _type = "nuturtlebot/SensorData"
   _has_header = False #flag to mark the presence of a Header object
   _full_text = """time stamp
-int32 left_encoder
-int32 right_encoder
-int16 accelX
-int16 accelY
-int16 accelZ
-int16 gyroX
-int16 gyroY
-int16 gyroZ
-int16 magX
-int16 magY
-int16 magZ
-float32 battery_voltage
+float32 left_encoder
+float32 right_encoder
 """
-  __slots__ = ['stamp','left_encoder','right_encoder','accelX','accelY','accelZ','gyroX','gyroY','gyroZ','magX','magY','magZ','battery_voltage']
-  _slot_types = ['time','int32','int32','int16','int16','int16','int16','int16','int16','int16','int16','int16','float32']
+  __slots__ = ['stamp','left_encoder','right_encoder']
+  _slot_types = ['time','float32','float32']
 
   def __init__(self, *args, **kwds):
     """
@@ -36,7 +26,7 @@ float32 battery_voltage
     changes.  You cannot mix in-order arguments and keyword arguments.
 
     The available fields are:
-       stamp,left_encoder,right_encoder,accelX,accelY,accelZ,gyroX,gyroY,gyroZ,magX,magY,magZ,battery_voltage
+       stamp,left_encoder,right_encoder
 
     :param args: complete set of field values, in .msg order
     :param kwds: use keyword arguments corresponding to message field names
@@ -48,43 +38,13 @@ float32 battery_voltage
       if self.stamp is None:
         self.stamp = genpy.Time()
       if self.left_encoder is None:
-        self.left_encoder = 0
+        self.left_encoder = 0.
       if self.right_encoder is None:
-        self.right_encoder = 0
-      if self.accelX is None:
-        self.accelX = 0
-      if self.accelY is None:
-        self.accelY = 0
-      if self.accelZ is None:
-        self.accelZ = 0
-      if self.gyroX is None:
-        self.gyroX = 0
-      if self.gyroY is None:
-        self.gyroY = 0
-      if self.gyroZ is None:
-        self.gyroZ = 0
-      if self.magX is None:
-        self.magX = 0
-      if self.magY is None:
-        self.magY = 0
-      if self.magZ is None:
-        self.magZ = 0
-      if self.battery_voltage is None:
-        self.battery_voltage = 0.
+        self.right_encoder = 0.
     else:
       self.stamp = genpy.Time()
-      self.left_encoder = 0
-      self.right_encoder = 0
-      self.accelX = 0
-      self.accelY = 0
-      self.accelZ = 0
-      self.gyroX = 0
-      self.gyroY = 0
-      self.gyroZ = 0
-      self.magX = 0
-      self.magY = 0
-      self.magZ = 0
-      self.battery_voltage = 0.
+      self.left_encoder = 0.
+      self.right_encoder = 0.
 
   def _get_types(self):
     """
@@ -99,7 +59,7 @@ float32 battery_voltage
     """
     try:
       _x = self
-      buff.write(_get_struct_2I2i9hf().pack(_x.stamp.secs, _x.stamp.nsecs, _x.left_encoder, _x.right_encoder, _x.accelX, _x.accelY, _x.accelZ, _x.gyroX, _x.gyroY, _x.gyroZ, _x.magX, _x.magY, _x.magZ, _x.battery_voltage))
+      buff.write(_get_struct_2I2f().pack(_x.stamp.secs, _x.stamp.nsecs, _x.left_encoder, _x.right_encoder))
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
@@ -114,8 +74,8 @@ float32 battery_voltage
       end = 0
       _x = self
       start = end
-      end += 38
-      (_x.stamp.secs, _x.stamp.nsecs, _x.left_encoder, _x.right_encoder, _x.accelX, _x.accelY, _x.accelZ, _x.gyroX, _x.gyroY, _x.gyroZ, _x.magX, _x.magY, _x.magZ, _x.battery_voltage,) = _get_struct_2I2i9hf().unpack(str[start:end])
+      end += 16
+      (_x.stamp.secs, _x.stamp.nsecs, _x.left_encoder, _x.right_encoder,) = _get_struct_2I2f().unpack(str[start:end])
       self.stamp.canon()
       return self
     except struct.error as e:
@@ -130,7 +90,7 @@ float32 battery_voltage
     """
     try:
       _x = self
-      buff.write(_get_struct_2I2i9hf().pack(_x.stamp.secs, _x.stamp.nsecs, _x.left_encoder, _x.right_encoder, _x.accelX, _x.accelY, _x.accelZ, _x.gyroX, _x.gyroY, _x.gyroZ, _x.magX, _x.magY, _x.magZ, _x.battery_voltage))
+      buff.write(_get_struct_2I2f().pack(_x.stamp.secs, _x.stamp.nsecs, _x.left_encoder, _x.right_encoder))
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
@@ -146,8 +106,8 @@ float32 battery_voltage
       end = 0
       _x = self
       start = end
-      end += 38
-      (_x.stamp.secs, _x.stamp.nsecs, _x.left_encoder, _x.right_encoder, _x.accelX, _x.accelY, _x.accelZ, _x.gyroX, _x.gyroY, _x.gyroZ, _x.magX, _x.magY, _x.magZ, _x.battery_voltage,) = _get_struct_2I2i9hf().unpack(str[start:end])
+      end += 16
+      (_x.stamp.secs, _x.stamp.nsecs, _x.left_encoder, _x.right_encoder,) = _get_struct_2I2f().unpack(str[start:end])
       self.stamp.canon()
       return self
     except struct.error as e:
@@ -157,9 +117,9 @@ _struct_I = genpy.struct_I
 def _get_struct_I():
     global _struct_I
     return _struct_I
-_struct_2I2i9hf = None
-def _get_struct_2I2i9hf():
-    global _struct_2I2i9hf
-    if _struct_2I2i9hf is None:
-        _struct_2I2i9hf = struct.Struct("<2I2i9hf")
-    return _struct_2I2i9hf
+_struct_2I2f = None
+def _get_struct_2I2f():
+    global _struct_2I2f
+    if _struct_2I2f is None:
+        _struct_2I2f = struct.Struct("<2I2f")
+    return _struct_2I2f

@@ -273,6 +273,21 @@ nuturtle_robot_genpy/fast:
 .PHONY : nuturtle_robot_genpy/fast
 
 # Convenience name for target.
+nu_packages/nuturtle_robot/CMakeFiles/nuturtle_robot_gencfg.dir/rule:
+	cd /home/ricojia/coffee_bot/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 nu_packages/nuturtle_robot/CMakeFiles/nuturtle_robot_gencfg.dir/rule
+.PHONY : nu_packages/nuturtle_robot/CMakeFiles/nuturtle_robot_gencfg.dir/rule
+
+# Convenience name for target.
+nuturtle_robot_gencfg: nu_packages/nuturtle_robot/CMakeFiles/nuturtle_robot_gencfg.dir/rule
+
+.PHONY : nuturtle_robot_gencfg
+
+# fast build rule for target.
+nuturtle_robot_gencfg/fast:
+	cd /home/ricojia/coffee_bot/ros_ws/build && $(MAKE) -f nu_packages/nuturtle_robot/CMakeFiles/nuturtle_robot_gencfg.dir/build.make nu_packages/nuturtle_robot/CMakeFiles/nuturtle_robot_gencfg.dir/build
+.PHONY : nuturtle_robot_gencfg/fast
+
+# Convenience name for target.
 nu_packages/nuturtle_robot/CMakeFiles/visualization_msgs_generate_messages_cpp.dir/rule:
 	cd /home/ricojia/coffee_bot/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 nu_packages/nuturtle_robot/CMakeFiles/visualization_msgs_generate_messages_cpp.dir/rule
 .PHONY : nu_packages/nuturtle_robot/CMakeFiles/visualization_msgs_generate_messages_cpp.dir/rule
@@ -466,6 +481,7 @@ help:
 	@echo "... visualization_msgs_generate_messages_lisp"
 	@echo "... install/strip"
 	@echo "... nuturtle_robot_genpy"
+	@echo "... nuturtle_robot_gencfg"
 	@echo "... visualization_msgs_generate_messages_cpp"
 	@echo "... visualization_msgs_generate_messages_eus"
 	@echo "... nuturtle_robot_genlisp"

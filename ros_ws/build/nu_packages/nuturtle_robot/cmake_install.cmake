@@ -66,6 +66,22 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include/nuturtle_robot" TYPE FILE FILES "/home/ricojia/coffee_bot/ros_ws/devel/include/nuturtle_robot/TurtleInterfaceConfig.h")
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/python2.7/dist-packages/nuturtle_robot" TYPE FILE FILES "/home/ricojia/coffee_bot/ros_ws/devel/lib/python2.7/dist-packages/nuturtle_robot/__init__.py")
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  execute_process(COMMAND "/usr/bin/python2" -m compileall "/home/ricojia/coffee_bot/ros_ws/devel/lib/python2.7/dist-packages/nuturtle_robot/cfg")
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/python2.7/dist-packages/nuturtle_robot" TYPE DIRECTORY FILES "/home/ricojia/coffee_bot/ros_ws/devel/lib/python2.7/dist-packages/nuturtle_robot/cfg")
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/ricojia/coffee_bot/ros_ws/build/nu_packages/nuturtle_robot/catkin_generated/installspace/nuturtle_robot.pc")
 endif()
 
@@ -100,7 +116,7 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/nuturtle_robot/turtle_interface")
     file(RPATH_CHANGE
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/nuturtle_robot/turtle_interface"
-         OLD_RPATH "/home/ricojia/coffee_bot/ros_ws/devel/lib:/opt/ros/melodic/lib:"
+         OLD_RPATH "/opt/ros/melodic/lib:/home/ricojia/coffee_bot/ros_ws/devel/lib:"
          NEW_RPATH "")
     if(CMAKE_INSTALL_DO_STRIP)
       execute_process(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/nuturtle_robot/turtle_interface")

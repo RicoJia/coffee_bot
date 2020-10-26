@@ -97,6 +97,8 @@
   <build_export_depend>std_srvs</build_export_depend>
   <build_export_depend>visualization_msgs</build_export_depend>
 
+  <depend>dynamic_reconfigure</depend>
+
 
   <!-- The export tag contains other, unspecified, tags -->
   <export>

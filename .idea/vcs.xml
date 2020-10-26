@@ -2,7 +2,14 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/ros_ws/src/default_coffeebot_pkgs/nuturtle" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/ros_ws/src/nu_packages/keyboard_pkgs/ros-keyboard" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/ros_ws/src/nu_packages/keyboard_pkgs/ros-universal-teleop" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/ros_ws/src/nu_packages/keyboard_pkgs/teleop_twist_keyboard" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/ros_ws/src/nu_packages/nuturtle" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/ros_ws/src/nu_packages/robot_pose_ekf" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/ros_ws/src/nu_packages/ros-universal-teleop" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/ros_ws/src/nu_packages/scan_tools" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/ros_ws/src/onboard_pkgs/nuturtle" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/ros_ws/src/onboard_pkgs/phidget_imu/phidgets_drivers" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/ros_ws/src/onboard_pkgs/rplidar_ros" vcs="Git" />

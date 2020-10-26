@@ -1,0 +1,12 @@
+\subsubsection usage Usage
+\verbatim
+<node name="turtle_interface" pkg="nuturtle_robot" type="turtle_interface">
+  <param name="k_rot_comp" type="double" value="0.0" />
+  <param name="max_trans_vel" type="double" value="0.5" />
+  <param name="max_wheel_command" type="double" value="32.0" />
+  <param name="cmd_ang_vel" type="double" value="0.7" />
+  <param name="cmd_trans_vel" type="double" value="0.2" />
+  <param name="ang_k" type="double" value="3.0" />
+</node>
+\endverbatim
+

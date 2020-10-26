@@ -1,0 +1,11 @@
+\subsubsection parameters ROS parameters
+
+Reads and maintains the following parameters on the ROS server
+
+- \b "~k_rot_comp" : \b [double] to compensate for the additional friction in rotation min: 1.0, default: 0.0, max: 2.0
+- \b "~max_trans_vel" : \b [double] maximum translational velocity min: 0.0, default: 0.5, max: 1.0
+- \b "~max_wheel_command" : \b [double] maximum pwm min: 0.0, default: 32.0, max: 32.0
+- \b "~cmd_ang_vel" : \b [double] cheat angular velocity min: 0.0, default: 0.7, max: 1.0
+- \b "~cmd_trans_vel" : \b [double] cheat translational velocity min: 0.0, default: 0.2, max: 0.5
+- \b "~ang_k" : \b [double] cheat angular velocity k min: 0.0, default: 3.0, max: 5.0
+
